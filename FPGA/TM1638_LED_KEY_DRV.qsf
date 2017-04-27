@@ -1,0 +1,139 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
+# Date created = 18:53:12  March 12, 2015
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Practica1_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M08SAE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY TM1638_LED_KEY_DRV_TOP
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:50:00 APRIL  27, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name DEVICE_FILTER_PACKAGE EQFP
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+
+
+
+#SYS
+set_location_assignment PIN_27 -to CK48M_i
+set_location_assignment PIN_123 -to XPSW_i
+set_location_assignment PIN_120 -to XLED_R_o
+set_location_assignment PIN_122 -to XLED_G_o
+set_location_assignment PIN_121 -to XLED_B_o
+
+# CN1
+set_location_assignment PIN_62 -to P62
+set_location_assignment PIN_61 -to P61
+set_location_assignment PIN_60 -to P60
+set_location_assignment PIN_59 -to P59
+set_location_assignment PIN_58 -to P58
+set_location_assignment PIN_57 -to P57
+set_location_assignment PIN_56 -to P56
+set_location_assignment PIN_55 -to P55
+set_location_assignment PIN_52 -to P52
+set_location_assignment PIN_50 -to P50
+set_location_assignment PIN_48 -to P48
+set_location_assignment PIN_47 -to P47
+set_location_assignment PIN_46 -to P46
+set_location_assignment PIN_45 -to P45
+set_location_assignment PIN_44 -to P44
+set_location_assignment PIN_43 -to P43
+set_location_assignment PIN_41 -to P41
+set_location_assignment PIN_39 -to P39
+set_location_assignment PIN_38 -to P38
+                            
+# CN2                       
+set_location_assignment PIN_124 -to P124
+set_location_assignment PIN_127 -to P127
+set_location_assignment PIN_130 -to P130
+set_location_assignment PIN_131 -to P131
+set_location_assignment PIN_132 -to P132
+set_location_assignment PIN_134 -to P134
+set_location_assignment PIN_135 -to P135
+set_location_assignment PIN_140 -to P140
+set_location_assignment PIN_141 -to P141
+#set_location_assignment PIN_3 -to P3
+set_location_assignment PIN_6 -to P6
+set_location_assignment PIN_7 -to P7
+set_location_assignment PIN_8 -to P8
+set_location_assignment PIN_10 -to P10
+set_location_assignment PIN_11 -to P11
+set_location_assignment PIN_12 -to P12
+set_location_assignment PIN_13 -to P13
+set_location_assignment PIN_14 -to P14
+set_location_assignment PIN_17 -to P17
+
+
+# Project files Assignments
+# ==========================
+set_global_assignment -name HDL_MESSAGE_LEVEL LEVEL3
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name ENABLE_OCT_DONE ON
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+
+set_global_assignment -name QIP_FILE IP/PLL/PLL.qip
+set_global_assignment -name VERILOG_FILE RTL/TM1638_LED_KEY_DRV_TOP.v
+set_global_assignment -name VERILOG_FILE RTL/TM1638_LED_KEY_DRV.v
+
+set_global_assignment -name VERILOG_FILE RTL/MISC/IIR_LPF.v
+set_global_assignment -name VERILOG_FILE RTL/MISC/DELTA_SIGMA_1BIT_DAC.v
+
+set_global_assignment -name SDC_FILE constraint/CQ_MAX10.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
