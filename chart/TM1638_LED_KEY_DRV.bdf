@@ -20,21 +20,3365 @@ applicable agreement for further details.
 */
 //#pragma file_not_in_maxplusii_format
 (header "graphic" (version "1.3"))
-(connector
-	(pt 248 168)
-	(pt 336 168)
+(symbol
+	(rect 1584 -104 1648 -64)
+	(text "inhb" (rect 1 0 17 10)(font "Arial" (font_size 6)))
+	(text "inst3" (rect 3 29 44 42)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+	(port
+		(pt 0 16)
+		(input)
+		(text "2" (rect 6 6 11 18)(font "Courier New" (bold))(invisible))
+		(text "2" (rect 6 6 11 18)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 17 16)(line_width 1))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "3" (rect 6 22 11 34)(font "Courier New" (bold))(invisible))
+		(text "3" (rect 6 22 11 34)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 8 32)(line_width 1))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "1" (rect 51 14 56 26)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 51 14 56 26)(font "Courier New" (bold))(invisible))
+		(line (pt 48 24)(pt 64 24)(line_width 1))
+	)
+	(drawing
+		(line (pt 17 12)(pt 33 12)(line_width 1))
+		(line (pt 17 36)(pt 33 36)(line_width 1))
+		(line (pt 7 32)(pt 10 32)(line_width 1))
+		(line (pt 46 24)(pt 48 24)(line_width 1))
+		(line (pt 45 24)(pt 50 24)(line_width 1))
+		(line (pt 17 36)(pt 17 12)(line_width 1))
+		(arc (pt 33 36)(pt 33 12)(rect 21 12 46 37)(line_width 1))
+		(circle (rect 9 28 17 36)(line_width 1))
+	)
+)
+(symbol
+	(rect 936 296 976 344)
+	(text "2_1sel" (rect 0 13 42 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+	(text "inst5" (rect 0 29 41 42)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A" (rect 24 0 32 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "A" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 32)(pt 8 32)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 16)
+		(input)
+		(text "B" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "B" (rect 8 11 16 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 16)(pt 8 16)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 16 48)
+		(input)
+		(text "S0" (rect 24 40 40 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S0" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 48)(pt 16 40)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 16 0)
+		(input)
+		(text "S1" (rect 24 32 40 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S1" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 0)(pt 16 8)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 40 32)
+		(output)
+		(text "Y" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "Y" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 32 32)(pt 40 32)(color 0 128 255)(line_width 3))
+	)
+	(drawing
+		(text "0" (rect 16 11 24 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "1" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(rectangle (rect 8 8 32 40))
+	)
+	(flipx)
+)
+(symbol
+	(rect 1160 -120 1200 -72)
+	(text "2_1sel" (rect 0 24 42 35)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+	(text "inst4" (rect 0 6 41 19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 16)
+		(input)
+		(text "A" (rect 24 0 32 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "A" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 16)(pt 8 16)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "B" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "B" (rect 8 24 16 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 32)(pt 8 32)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 16 0)
+		(input)
+		(text "S0" (rect 24 40 40 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S0" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 0)(pt 16 8)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 16 48)
+		(input)
+		(text "S1" (rect 24 32 40 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S1" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 48)(pt 16 40)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 40 16)
+		(output)
+		(text "Y" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "Y" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 32 16)(pt 40 16)(color 0 128 255)(line_width 3))
+	)
+	(drawing
+		(text "0" (rect 16 24 24 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "1" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(rectangle (rect 8 8 32 40))
+	)
+)
+(symbol
+	(rect 1480 -96 1520 -48)
+	(text "2_1sel" (rect 0 13 42 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+	(text "inst6" (rect 0 29 41 42)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 32)
+		(input)
+		(text "A" (rect 24 0 32 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "A" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 32)(pt 8 32)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 16)
+		(input)
+		(text "B" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "B" (rect 8 11 16 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 16)(pt 8 16)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 16 48)
+		(input)
+		(text "S0" (rect 24 40 40 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S0" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 48)(pt 16 40)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 16 0)
+		(input)
+		(text "S1" (rect 24 32 40 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S1" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 0)(pt 16 8)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 40 32)
+		(output)
+		(text "Y" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "Y" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 32 32)(pt 40 32)(color 0 128 255)(line_width 3))
+	)
+	(drawing
+		(text "0" (rect 16 11 24 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "1" (rect 16 27 24 40)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(rectangle (rect 8 8 32 40))
+	)
+	(flipx)
+)
+(symbol
+	(rect 1400 -40 1456 40)
+	(text "4_1sel" (rect 48 32 104 48)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12))(invisible))
+	(text "inst" (rect 64 40 101 56)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12))(invisible))
+	(port
+		(pt 24 80)
+		(input)
+		(text "S" (rect 16 38 29 46)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical))
+		(text "S" (rect 16 38 29 46)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 24 80)(pt 24 72)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 16)
+		(input)
+		(text "A" (rect 0 48 9 64)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "0" (rect 24 8 31 19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8)))
+		(line (pt 0 16)(pt 16 16)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "B" (rect 24 128 33 144)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "1" (rect 24 24 31 35)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "C" (rect 24 72 32 85)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "2" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(line (pt 0 48)(pt 16 48)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "3" (rect 24 32 32 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "3" (rect 24 56 32 69)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(line (pt 0 64)(pt 16 64)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 56 16)
+		(output)
+		(text "Y" (rect 14 8 22 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "Y" (rect 32 8 40 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 56 16)(pt 48 16)(color 128 0 255)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 8 48 72))
+	)
+)
+(symbol
+	(rect 1664 -96 1704 -56)
+	(text "D" (rect 5 0 14 16)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12))(invisible))
+	(text "inst7" (rect 0 24 41 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 16)
+		(input)
+		(text "A[7..0]" (rect 0 0 66 16)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "A" (rect 8 8 15 19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+		(line (pt 0 16)(pt 8 16)(line_width 3))
+	)
+	(port
+		(pt 40 16)
+		(output)
+		(text "Y[7..0]" (rect -144 0 -78 16)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "Y" (rect 24 24 31 35)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+		(line (pt 40 16)(pt 32 16)(line_width 3))
+	)
+	(drawing
+		(text "D" (rect 16 8 25 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(rectangle (rect 8 8 32 32))
+	)
+)
+(symbol
+	(rect 1008 -152 1048 -104)
+	(text "2_1sel" (rect 0 24 42 35)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+	(text "inst9" (rect 0 6 41 19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 16)
+		(input)
+		(text "A" (rect 24 0 32 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "A" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 16)(pt 8 16)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "B" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "B" (rect 8 24 16 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 0 32)(pt 8 32)(color 0 128 255)(line_width 3))
+	)
+	(port
+		(pt 16 0)
+		(input)
+		(text "S0" (rect 24 40 40 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S0" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 0)(pt 16 8)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 16 48)
+		(input)
+		(text "S1" (rect 24 32 40 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "S1" (rect 8 16 21 32)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(vertical)(invisible))
+		(line (pt 16 48)(pt 16 40)(color 0 128 255)(line_width 1))
+	)
+	(port
+		(pt 40 16)
+		(output)
+		(text "Y" (rect 24 40 32 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "Y" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+		(line (pt 32 16)(pt 40 16)(color 0 128 255)(line_width 3))
+	)
+	(drawing
+		(text "0" (rect 16 24 24 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "1" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(rectangle (rect 8 8 32 40))
+	)
+)
+(symbol
+	(rect 952 -136 992 -88)
+	(text "DE" (rect 8 32 26 48)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12))(invisible))
+	(text "inst10" (rect 0 24 49 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10))(invisible))
+	(port
+		(pt 0 16)
+		(input)
+		(text "D[0:0]" (rect 0 0 56 16)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "D" (rect 16 8 24 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(line (pt 0 16)(pt 8 16)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "E" (rect 24 24 32 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(text "E" (rect 16 24 24 37)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+		(line (pt 0 32)(pt 8 32)(line_width 1))
+	)
+	(port
+		(pt 40 16)
+		(output)
+		(text "Y[7..0]" (rect -144 0 -78 16)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 12)))
+		(text "Y" (rect 32 8 39 19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 8))(invisible))
+		(line (pt 40 16)(pt 32 16)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 8 8 32 40)(color 0 0 0))
+	)
 )
 (connector
-	(pt 336 168)
-	(pt 336 72)
+	(pt 120 544)
+	(pt 136 544)
 )
 (connector
-	(pt 336 72)
-	(pt 248 72)
+	(pt 136 544)
+	(pt 136 536)
 )
 (connector
-	(pt 248 72)
-	(pt 248 168)
+	(pt 136 536)
+	(pt 152 536)
 )
+(connector
+	(pt 152 544)
+	(pt 168 544)
+)
+(connector
+	(pt 152 536)
+	(pt 152 544)
+)
+(connector
+	(pt 168 544)
+	(pt 168 536)
+)
+(connector
+	(pt 168 536)
+	(pt 184 536)
+)
+(connector
+	(pt 184 544)
+	(pt 200 544)
+)
+(connector
+	(pt 184 536)
+	(pt 184 544)
+)
+(connector
+	(pt 200 536)
+	(pt 216 536)
+)
+(connector
+	(pt 200 544)
+	(pt 200 536)
+)
+(connector
+	(pt 216 544)
+	(pt 232 544)
+)
+(connector
+	(pt 216 536)
+	(pt 216 544)
+)
+(connector
+	(pt 232 544)
+	(pt 232 536)
+)
+(connector
+	(pt 248 544)
+	(pt 264 544)
+)
+(connector
+	(pt 248 536)
+	(pt 248 544)
+)
+(connector
+	(pt 264 544)
+	(pt 264 536)
+)
+(connector
+	(pt 264 536)
+	(pt 280 536)
+)
+(connector
+	(pt 280 544)
+	(pt 296 544)
+)
+(connector
+	(pt 280 536)
+	(pt 280 544)
+)
+(connector
+	(pt 296 544)
+	(pt 296 536)
+)
+(connector
+	(pt 296 536)
+	(pt 312 536)
+)
+(connector
+	(pt 312 544)
+	(pt 328 544)
+)
+(connector
+	(pt 312 536)
+	(pt 312 544)
+)
+(connector
+	(pt 328 536)
+	(pt 344 536)
+)
+(connector
+	(pt 328 544)
+	(pt 328 536)
+)
+(connector
+	(pt 344 544)
+	(pt 360 544)
+)
+(connector
+	(pt 344 536)
+	(pt 344 544)
+)
+(connector
+	(pt 232 536)
+	(pt 248 536)
+)
+(connector
+	(pt 120 544)
+	(pt 120 536)
+)
+(connector
+	(pt 360 544)
+	(pt 360 536)
+)
+(connector
+	(pt 440 544)
+	(pt 456 544)
+)
+(connector
+	(pt 440 536)
+	(pt 440 544)
+)
+(connector
+	(pt 456 544)
+	(pt 456 536)
+)
+(connector
+	(pt 472 544)
+	(pt 488 544)
+)
+(connector
+	(pt 472 536)
+	(pt 472 544)
+)
+(connector
+	(pt 488 544)
+	(pt 488 536)
+)
+(connector
+	(pt 488 536)
+	(pt 504 536)
+)
+(connector
+	(pt 504 544)
+	(pt 520 544)
+)
+(connector
+	(pt 504 536)
+	(pt 504 544)
+)
+(connector
+	(pt 520 536)
+	(pt 536 536)
+)
+(connector
+	(pt 520 544)
+	(pt 520 536)
+)
+(connector
+	(pt 536 544)
+	(pt 552 544)
+)
+(connector
+	(pt 536 536)
+	(pt 536 544)
+)
+(connector
+	(pt 552 536)
+	(pt 568 536)
+)
+(connector
+	(pt 552 544)
+	(pt 552 536)
+)
+(connector
+	(pt 408 528)
+	(pt 408 520)
+)
+(connector
+	(pt 408 520)
+	(pt 424 520)
+)
+(connector
+	(pt 424 520)
+	(pt 424 528)
+)
+(connector
+	(pt 456 536)
+	(pt 472 536)
+)
+(connector
+	(pt 88 520)
+	(pt 104 520)
+)
+(connector
+	(pt 104 520)
+	(pt 104 528)
+)
+(connector
+	(pt 360 536)
+	(pt 440 536)
+)
+(connector
+	(pt 88 536)
+	(pt 120 536)
+)
+(connector
+	(pt 104 528)
+	(pt 408 528)
+)
+(connector
+	(pt 408 528)
+	(pt 424 528)
+)
+(connector
+	(pt 424 528)
+	(pt 576 528)
+)
+(connector
+	(pt 120 488)
+	(pt 120 496)
+)
+(connector
+	(pt 136 488)
+	(pt 136 496)
+)
+(connector
+	(pt 120 496)
+	(pt 136 496)
+)
+(connector
+	(pt 168 488)
+	(pt 168 496)
+)
+(connector
+	(pt 200 488)
+	(pt 200 496)
+)
+(connector
+	(pt 232 488)
+	(pt 232 496)
+)
+(connector
+	(pt 264 488)
+	(pt 264 496)
+)
+(connector
+	(pt 296 488)
+	(pt 296 496)
+)
+(connector
+	(pt 328 488)
+	(pt 328 496)
+)
+(connector
+	(pt 360 488)
+	(pt 360 496)
+)
+(connector
+	(pt 392 488)
+	(pt 392 496)
+)
+(connector
+	(pt 424 488)
+	(pt 424 496)
+)
+(connector
+	(pt 456 488)
+	(pt 456 496)
+)
+(connector
+	(pt 488 488)
+	(pt 488 496)
+)
+(connector
+	(pt 520 488)
+	(pt 520 496)
+)
+(connector
+	(pt 552 488)
+	(pt 552 496)
+)
+(connector
+	(pt 552 496)
+	(pt 624 496)
+)
+(connector
+	(pt 536 488)
+	(pt 536 496)
+)
+(connector
+	(pt 520 496)
+	(pt 536 496)
+)
+(connector
+	(pt 536 496)
+	(pt 552 496)
+)
+(connector
+	(pt 504 488)
+	(pt 504 496)
+)
+(connector
+	(pt 488 496)
+	(pt 504 496)
+)
+(connector
+	(pt 504 496)
+	(pt 520 496)
+)
+(connector
+	(pt 472 488)
+	(pt 472 496)
+)
+(connector
+	(pt 456 496)
+	(pt 472 496)
+)
+(connector
+	(pt 472 496)
+	(pt 488 496)
+)
+(connector
+	(pt 440 488)
+	(pt 440 496)
+)
+(connector
+	(pt 424 496)
+	(pt 440 496)
+)
+(connector
+	(pt 440 496)
+	(pt 456 496)
+)
+(connector
+	(pt 408 488)
+	(pt 408 496)
+)
+(connector
+	(pt 392 496)
+	(pt 408 496)
+)
+(connector
+	(pt 408 496)
+	(pt 424 496)
+)
+(connector
+	(pt 376 488)
+	(pt 376 496)
+)
+(connector
+	(pt 360 496)
+	(pt 376 496)
+)
+(connector
+	(pt 376 496)
+	(pt 392 496)
+)
+(connector
+	(pt 344 488)
+	(pt 344 496)
+)
+(connector
+	(pt 328 496)
+	(pt 344 496)
+)
+(connector
+	(pt 344 496)
+	(pt 360 496)
+)
+(connector
+	(pt 312 488)
+	(pt 312 496)
+)
+(connector
+	(pt 296 496)
+	(pt 312 496)
+)
+(connector
+	(pt 312 496)
+	(pt 328 496)
+)
+(connector
+	(pt 280 488)
+	(pt 280 496)
+)
+(connector
+	(pt 264 496)
+	(pt 280 496)
+)
+(connector
+	(pt 280 496)
+	(pt 296 496)
+)
+(connector
+	(pt 248 488)
+	(pt 248 496)
+)
+(connector
+	(pt 232 496)
+	(pt 248 496)
+)
+(connector
+	(pt 248 496)
+	(pt 264 496)
+)
+(connector
+	(pt 216 488)
+	(pt 216 496)
+)
+(connector
+	(pt 200 496)
+	(pt 216 496)
+)
+(connector
+	(pt 216 496)
+	(pt 232 496)
+)
+(connector
+	(pt 184 488)
+	(pt 184 496)
+)
+(connector
+	(pt 168 496)
+	(pt 184 496)
+)
+(connector
+	(pt 184 496)
+	(pt 200 496)
+)
+(connector
+	(pt 152 488)
+	(pt 152 496)
+)
+(connector
+	(pt 136 496)
+	(pt 152 496)
+)
+(connector
+	(pt 152 496)
+	(pt 168 496)
+)
+(connector
+	(pt 104 488)
+	(pt 104 496)
+)
+(connector
+	(pt 88 496)
+	(pt 104 496)
+)
+(connector
+	(pt 104 496)
+	(pt 120 496)
+)
+(connector
+	(pt 120 608)
+	(pt 120 624)
+)
+(connector
+	(pt 152 608)
+	(pt 152 624)
+)
+(connector
+	(pt 184 608)
+	(pt 184 624)
+)
+(connector
+	(pt 216 608)
+	(pt 216 624)
+)
+(connector
+	(pt 248 608)
+	(pt 248 624)
+)
+(connector
+	(pt 280 608)
+	(pt 280 624)
+)
+(connector
+	(pt 312 608)
+	(pt 312 624)
+)
+(connector
+	(pt 344 608)
+	(pt 344 624)
+)
+(connector
+	(pt 120 632)
+	(pt 88 632)
+)
+(connector
+	(pt 120 640)
+	(pt 376 640)
+)
+(connector
+	(pt 120 632)
+	(pt 120 640)
+)
+(connector
+	(pt 376 608)
+	(pt 376 624)
+)
+(connector
+	(pt 376 640)
+	(pt 376 632)
+)
+(connector
+	(pt 472 608)
+	(pt 472 624)
+)
+(connector
+	(pt 504 608)
+	(pt 504 624)
+)
+(connector
+	(pt 536 608)
+	(pt 536 624)
+)
+(connector
+	(pt 568 608)
+	(pt 568 624)
+)
+(connector
+	(pt 600 608)
+	(pt 600 624)
+)
+(connector
+	(pt 632 608)
+	(pt 632 624)
+)
+(connector
+	(pt 664 608)
+	(pt 664 624)
+)
+(connector
+	(pt 696 608)
+	(pt 696 624)
+)
+(connector
+	(pt 440 608)
+	(pt 440 624)
+)
+(connector
+	(pt 440 640)
+	(pt 696 640)
+)
+(connector
+	(pt 696 640)
+	(pt 696 632)
+)
+(connector
+	(pt 696 632)
+	(pt 728 632)
+)
+(connector
+	(pt 728 640)
+	(pt 728 632)
+)
+(connector
+	(pt 376 632)
+	(pt 440 632)
+)
+(connector
+	(pt 440 632)
+	(pt 440 640)
+)
+(connector
+	(pt 584 672)
+	(pt 584 664)
+)
+(connector
+	(pt 456 664)
+	(pt 456 672)
+)
+(connector
+	(pt 88 584)
+	(pt 88 600)
+)
+(connector
+	(pt 120 584)
+	(pt 120 600)
+)
+(connector
+	(pt 152 584)
+	(pt 152 600)
+)
+(connector
+	(pt 184 584)
+	(pt 184 600)
+)
+(connector
+	(pt 216 584)
+	(pt 216 600)
+)
+(connector
+	(pt 248 584)
+	(pt 248 600)
+)
+(connector
+	(pt 280 584)
+	(pt 280 600)
+)
+(connector
+	(pt 312 584)
+	(pt 312 600)
+)
+(connector
+	(pt 344 584)
+	(pt 344 600)
+)
+(connector
+	(pt 120 608)
+	(pt 152 608)
+)
+(connector
+	(pt 152 608)
+	(pt 184 608)
+)
+(connector
+	(pt 120 624)
+	(pt 152 624)
+)
+(connector
+	(pt 152 624)
+	(pt 184 624)
+)
+(connector
+	(pt 184 608)
+	(pt 216 608)
+)
+(connector
+	(pt 216 608)
+	(pt 248 608)
+)
+(connector
+	(pt 184 624)
+	(pt 216 624)
+)
+(connector
+	(pt 216 624)
+	(pt 248 624)
+)
+(connector
+	(pt 248 608)
+	(pt 280 608)
+)
+(connector
+	(pt 280 608)
+	(pt 312 608)
+)
+(connector
+	(pt 312 608)
+	(pt 344 608)
+)
+(connector
+	(pt 344 608)
+	(pt 376 608)
+)
+(connector
+	(pt 248 624)
+	(pt 280 624)
+)
+(connector
+	(pt 280 624)
+	(pt 312 624)
+)
+(connector
+	(pt 312 624)
+	(pt 344 624)
+)
+(connector
+	(pt 344 624)
+	(pt 376 624)
+)
+(connector
+	(pt 440 608)
+	(pt 472 608)
+)
+(connector
+	(pt 472 608)
+	(pt 504 608)
+)
+(connector
+	(pt 504 608)
+	(pt 536 608)
+)
+(connector
+	(pt 536 608)
+	(pt 568 608)
+)
+(connector
+	(pt 568 608)
+	(pt 600 608)
+)
+(connector
+	(pt 600 608)
+	(pt 632 608)
+)
+(connector
+	(pt 632 608)
+	(pt 664 608)
+)
+(connector
+	(pt 664 608)
+	(pt 696 608)
+)
+(connector
+	(pt 440 624)
+	(pt 472 624)
+)
+(connector
+	(pt 472 624)
+	(pt 504 624)
+)
+(connector
+	(pt 504 624)
+	(pt 536 624)
+)
+(connector
+	(pt 536 624)
+	(pt 568 624)
+)
+(connector
+	(pt 568 624)
+	(pt 600 624)
+)
+(connector
+	(pt 600 624)
+	(pt 632 624)
+)
+(connector
+	(pt 632 624)
+	(pt 664 624)
+)
+(connector
+	(pt 664 624)
+	(pt 696 624)
+)
+(connector
+	(pt 80 672)
+	(pt 456 672)
+)
+(connector
+	(pt 456 672)
+	(pt 584 672)
+)
+(connector
+	(pt 584 672)
+	(pt 696 672)
+)
+(connector
+	(pt 88 584)
+	(pt 120 584)
+)
+(connector
+	(pt 120 584)
+	(pt 152 584)
+)
+(connector
+	(pt 152 584)
+	(pt 184 584)
+)
+(connector
+	(pt 184 584)
+	(pt 216 584)
+)
+(connector
+	(pt 216 584)
+	(pt 248 584)
+)
+(connector
+	(pt 248 584)
+	(pt 280 584)
+)
+(connector
+	(pt 280 584)
+	(pt 312 584)
+)
+(connector
+	(pt 312 584)
+	(pt 344 584)
+)
+(connector
+	(pt 88 600)
+	(pt 120 600)
+)
+(connector
+	(pt 120 600)
+	(pt 152 600)
+)
+(connector
+	(pt 152 600)
+	(pt 184 600)
+)
+(connector
+	(pt 184 600)
+	(pt 216 600)
+)
+(connector
+	(pt 216 600)
+	(pt 248 600)
+)
+(connector
+	(pt 248 600)
+	(pt 280 600)
+)
+(connector
+	(pt 280 600)
+	(pt 312 600)
+)
+(connector
+	(pt 312 600)
+	(pt 344 600)
+)
+(connector
+	(pt 72 840)
+	(pt 112 840)
+)
+(connector
+	(pt 112 840)
+	(pt 112 824)
+)
+(connector
+	(pt 112 824)
+	(pt 72 824)
+)
+(connector
+	(pt 72 824)
+	(pt 72 840)
+)
+(connector
+	(pt 128 840)
+	(pt 168 840)
+)
+(connector
+	(pt 168 840)
+	(pt 168 824)
+)
+(connector
+	(pt 168 824)
+	(pt 128 824)
+)
+(connector
+	(pt 128 824)
+	(pt 128 840)
+)
+(connector
+	(pt 184 840)
+	(pt 224 840)
+)
+(connector
+	(pt 224 840)
+	(pt 224 824)
+)
+(connector
+	(pt 224 824)
+	(pt 184 824)
+)
+(connector
+	(pt 184 824)
+	(pt 184 840)
+)
+(connector
+	(pt 240 840)
+	(pt 280 840)
+)
+(connector
+	(pt 280 840)
+	(pt 280 824)
+)
+(connector
+	(pt 280 824)
+	(pt 240 824)
+)
+(connector
+	(pt 240 824)
+	(pt 240 840)
+)
+(connector
+	(pt 320 840)
+	(pt 360 840)
+)
+(connector
+	(pt 360 840)
+	(pt 360 824)
+)
+(connector
+	(pt 360 824)
+	(pt 320 824)
+)
+(connector
+	(pt 320 824)
+	(pt 320 840)
+)
+(connector
+	(pt 376 840)
+	(pt 416 840)
+)
+(connector
+	(pt 416 840)
+	(pt 416 824)
+)
+(connector
+	(pt 416 824)
+	(pt 376 824)
+)
+(connector
+	(pt 376 824)
+	(pt 376 840)
+)
+(connector
+	(pt 432 840)
+	(pt 472 840)
+)
+(connector
+	(pt 472 840)
+	(pt 472 824)
+)
+(connector
+	(pt 472 824)
+	(pt 432 824)
+)
+(connector
+	(pt 432 824)
+	(pt 432 840)
+)
+(connector
+	(pt 72 880)
+	(pt 112 880)
+)
+(connector
+	(pt 112 880)
+	(pt 112 872)
+)
+(connector
+	(pt 112 872)
+	(pt 128 872)
+)
+(connector
+	(pt 128 872)
+	(pt 128 880)
+)
+(connector
+	(pt 128 880)
+	(pt 168 880)
+)
+(connector
+	(pt 168 880)
+	(pt 168 872)
+)
+(connector
+	(pt 184 872)
+	(pt 184 880)
+)
+(connector
+	(pt 184 880)
+	(pt 224 880)
+)
+(connector
+	(pt 224 880)
+	(pt 224 872)
+)
+(connector
+	(pt 224 872)
+	(pt 240 872)
+)
+(connector
+	(pt 240 872)
+	(pt 240 880)
+)
+(connector
+	(pt 240 880)
+	(pt 280 880)
+)
+(connector
+	(pt 280 880)
+	(pt 280 872)
+)
+(connector
+	(pt 168 872)
+	(pt 184 872)
+)
+(connector
+	(pt 320 872)
+	(pt 320 880)
+)
+(connector
+	(pt 320 880)
+	(pt 360 880)
+)
+(connector
+	(pt 360 880)
+	(pt 360 872)
+)
+(connector
+	(pt 360 872)
+	(pt 376 872)
+)
+(connector
+	(pt 376 872)
+	(pt 376 880)
+)
+(connector
+	(pt 432 872)
+	(pt 432 880)
+)
+(connector
+	(pt 432 880)
+	(pt 472 880)
+)
+(connector
+	(pt 472 880)
+	(pt 472 872)
+)
+(connector
+	(pt 376 880)
+	(pt 416 880)
+)
+(connector
+	(pt 416 872)
+	(pt 416 880)
+)
+(connector
+	(pt 416 872)
+	(pt 432 872)
+)
+(connector
+	(pt 72 872)
+	(pt 32 872)
+)
+(connector
+	(pt 72 880)
+	(pt 72 872)
+)
+(connector
+	(pt 488 864)
+	(pt 528 864)
+)
+(connector
+	(pt 528 864)
+	(pt 528 848)
+)
+(connector
+	(pt 528 848)
+	(pt 488 848)
+)
+(connector
+	(pt 488 848)
+	(pt 488 864)
+)
+(connector
+	(pt 544 864)
+	(pt 584 864)
+)
+(connector
+	(pt 584 864)
+	(pt 584 848)
+)
+(connector
+	(pt 584 848)
+	(pt 544 848)
+)
+(connector
+	(pt 544 848)
+	(pt 544 864)
+)
+(connector
+	(pt 600 864)
+	(pt 640 864)
+)
+(connector
+	(pt 640 864)
+	(pt 640 848)
+)
+(connector
+	(pt 640 848)
+	(pt 600 848)
+)
+(connector
+	(pt 600 848)
+	(pt 600 864)
+)
+(connector
+	(pt 656 864)
+	(pt 696 864)
+)
+(connector
+	(pt 696 864)
+	(pt 696 848)
+)
+(connector
+	(pt 696 848)
+	(pt 656 848)
+)
+(connector
+	(pt 656 848)
+	(pt 656 864)
+)
+(connector
+	(pt 64 896)
+	(pt 120 896)
+)
+(connector
+	(pt 120 896)
+	(pt 120 888)
+)
+(connector
+	(pt 120 888)
+	(pt 128 888)
+)
+(connector
+	(pt 128 888)
+	(pt 128 896)
+)
+(connector
+	(pt 128 896)
+	(pt 368 896)
+)
+(connector
+	(pt 368 896)
+	(pt 368 888)
+)
+(connector
+	(pt 368 888)
+	(pt 376 888)
+)
+(connector
+	(pt 376 888)
+	(pt 376 896)
+)
+(connector
+	(pt 376 896)
+	(pt 424 896)
+)
+(connector
+	(pt 424 896)
+	(pt 424 888)
+)
+(connector
+	(pt 424 888)
+	(pt 432 888)
+)
+(connector
+	(pt 432 888)
+	(pt 432 896)
+)
+(connector
+	(pt 432 896)
+	(pt 704 896)
+)
+(connector
+	(pt 704 896)
+	(pt 704 888)
+)
+(connector
+	(pt 704 888)
+	(pt 720 888)
+)
+(connector
+	(pt 720 872)
+	(pt 472 872)
+)
+(connector
+	(pt 56 800)
+	(pt 56 792)
+)
+(connector
+	(pt 64 816)
+	(pt 64 808)
+)
+(connector
+	(pt 704 912)
+	(pt 48 912)
+)
+(connector
+	(pt 704 912)
+	(pt 704 920)
+)
+(connector
+	(pt 704 920)
+	(pt 720 920)
+)
+(connector
+	(pt 48 920)
+	(pt 32 920)
+)
+(connector
+	(pt 48 912)
+	(pt 48 920)
+)
+(connector
+	(pt 64 888)
+	(pt 32 888)
+)
+(connector
+	(pt 64 896)
+	(pt 64 888)
+)
+(connector
+	(pt 40 800)
+	(pt 56 800)
+)
+(connector
+	(pt 56 800)
+	(pt 720 800)
+)
+(connector
+	(pt 40 816)
+	(pt 64 816)
+)
+(connector
+	(pt 64 816)
+	(pt 720 816)
+)
+(connector
+	(pt 96 360)
+	(pt 96 368)
+)
+(connector
+	(pt 88 360)
+	(pt 96 360)
+)
+(connector
+	(pt 88 368)
+	(pt 88 360)
+)
+(connector
+	(pt 160 360)
+	(pt 160 368)
+)
+(connector
+	(pt 152 368)
+	(pt 152 360)
+)
+(connector
+	(pt 152 360)
+	(pt 160 360)
+)
+(connector
+	(pt 216 360)
+	(pt 216 368)
+)
+(connector
+	(pt 216 360)
+	(pt 224 360)
+)
+(connector
+	(pt 224 360)
+	(pt 224 368)
+)
+(connector
+	(pt 56 384)
+	(pt 56 376)
+)
+(connector
+	(pt 56 376)
+	(pt 64 376)
+)
+(connector
+	(pt 64 376)
+	(pt 64 384)
+)
+(connector
+	(pt 128 384)
+	(pt 128 376)
+)
+(connector
+	(pt 120 376)
+	(pt 128 376)
+)
+(connector
+	(pt 120 384)
+	(pt 120 376)
+)
+(connector
+	(pt 192 376)
+	(pt 192 384)
+)
+(connector
+	(pt 184 376)
+	(pt 192 376)
+)
+(connector
+	(pt 184 384)
+	(pt 184 376)
+)
+(connector
+	(pt 256 376)
+	(pt 256 384)
+)
+(connector
+	(pt 248 376)
+	(pt 256 376)
+)
+(connector
+	(pt 248 384)
+	(pt 248 376)
+)
+(connector
+	(pt 64 384)
+	(pt 120 384)
+)
+(connector
+	(pt 128 384)
+	(pt 184 384)
+)
+(connector
+	(pt 192 384)
+	(pt 248 384)
+)
+(connector
+	(pt 96 408)
+	(pt 128 408)
+)
+(connector
+	(pt 64 408)
+	(pt 64 400)
+)
+(connector
+	(pt 96 400)
+	(pt 64 400)
+)
+(connector
+	(pt 96 408)
+	(pt 96 400)
+)
+(connector
+	(pt 160 408)
+	(pt 192 408)
+)
+(connector
+	(pt 160 408)
+	(pt 160 400)
+)
+(connector
+	(pt 128 400)
+	(pt 128 408)
+)
+(connector
+	(pt 128 400)
+	(pt 160 400)
+)
+(connector
+	(pt 224 408)
+	(pt 256 408)
+)
+(connector
+	(pt 224 408)
+	(pt 224 400)
+)
+(connector
+	(pt 256 400)
+	(pt 256 408)
+)
+(connector
+	(pt 192 400)
+	(pt 192 408)
+)
+(connector
+	(pt 192 400)
+	(pt 224 400)
+)
+(connector
+	(pt 256 384)
+	(pt 272 384)
+)
+(connector
+	(pt 256 400)
+	(pt 272 400)
+)
+(connector
+	(pt 280 872)
+	(pt 288 872)
+)
+(connector
+	(pt 312 872)
+	(pt 320 872)
+)
+(connector
+	(pt 184 56)
+	(pt 184 272)
+)
+(connector
+	(pt 184 56)
+	(pt 488 56)
+)
+(connector
+	(pt 184 272)
+	(pt 488 272)
+)
+(connector
+	(pt 488 56)
+	(pt 488 272)
+)
+(connector
+	(pt 1224 -120)
+	(pt 1288 -120)
+)
+(connector
+	(pt 1200 -104)
+	(pt 1224 -104)
+	(bus)
+)
+(connector
+	(pt 1224 -120)
+	(pt 1224 -104)
+)
+(connector
+	(pt 1248 224)
+	(pt 1248 168)
+)
+(connector
+	(pt 1248 224)
+	(pt 1160 224)
+)
+(connector
+	(pt 1160 -104)
+	(pt 1104 -104)
+	(bus)
+)
+(connector
+	(pt 840 240)
+	(pt 840 328)
+	(bus)
+)
+(connector
+	(pt 840 240)
+	(pt 888 240)
+	(bus)
+)
+(connector
+	(pt 928 312)
+	(pt 936 312)
+	(bus)
+)
+(connector
+	(pt 928 272)
+	(pt 928 312)
+	(bus)
+)
+(connector
+	(pt 928 272)
+	(pt 920 272)
+	(bus)
+)
+(connector
+	(pt 896 280)
+	(pt 896 360)
+)
+(connector
+	(pt 904 280)
+	(pt 904 376)
+)
+(connector
+	(pt 904 376)
+	(pt 856 376)
+)
+(connector
+	(pt 792 328)
+	(pt 792 320)
+	(bus)
+)
+(connector
+	(pt 800 320)
+	(pt 792 320)
+	(bus)
+)
+(connector
+	(pt 800 328)
+	(pt 800 320)
+	(bus)
+)
+(connector
+	(pt 952 344)
+	(pt 952 360)
+)
+(connector
+	(pt 1232 168)
+	(pt 1232 360)
+)
+(connector
+	(pt 888 224)
+	(pt 920 224)
+)
+(connector
+	(pt 1224 168)
+	(pt 1232 168)
+)
+(connector
+	(pt 1232 168)
+	(pt 1248 168)
+)
+(connector
+	(pt 888 280)
+	(pt 896 280)
+)
+(connector
+	(pt 896 280)
+	(pt 904 280)
+)
+(connector
+	(pt 904 280)
+	(pt 920 280)
+)
+(connector
+	(pt 792 328)
+	(pt 800 328)
+	(bus)
+)
+(connector
+	(pt 840 328)
+	(pt 936 328)
+	(bus)
+)
+(connector
+	(pt 856 360)
+	(pt 896 360)
+)
+(connector
+	(pt 896 360)
+	(pt 952 360)
+)
+(connector
+	(pt 952 360)
+	(pt 1232 360)
+)
+(connector
+	(pt 888 224)
+	(pt 888 240)
+)
+(connector
+	(pt 888 240)
+	(pt 888 280)
+)
+(connector
+	(pt 920 224)
+	(pt 920 272)
+)
+(connector
+	(pt 920 272)
+	(pt 920 280)
+)
+(connector
+	(pt 864 -88)
+	(pt 864 -96)
+	(bus)
+)
+(connector
+	(pt 864 -96)
+	(pt 872 -96)
+	(bus)
+)
+(connector
+	(pt 872 -88)
+	(pt 872 -96)
+	(bus)
+)
+(connector
+	(pt 864 -48)
+	(pt 864 -56)
+	(bus)
+)
+(connector
+	(pt 864 -56)
+	(pt 872 -56)
+	(bus)
+)
+(connector
+	(pt 872 -48)
+	(pt 872 -56)
+	(bus)
+)
+(connector
+	(pt 864 -16)
+	(pt 864 -24)
+	(bus)
+)
+(connector
+	(pt 864 -24)
+	(pt 872 -24)
+	(bus)
+)
+(connector
+	(pt 872 -16)
+	(pt 872 -24)
+	(bus)
+)
+(connector
+	(pt 864 16)
+	(pt 864 8)
+	(bus)
+)
+(connector
+	(pt 864 8)
+	(pt 872 8)
+	(bus)
+)
+(connector
+	(pt 872 16)
+	(pt 872 8)
+	(bus)
+)
+(connector
+	(pt 864 48)
+	(pt 864 40)
+	(bus)
+)
+(connector
+	(pt 864 40)
+	(pt 872 40)
+	(bus)
+)
+(connector
+	(pt 872 48)
+	(pt 872 40)
+	(bus)
+)
+(connector
+	(pt 864 80)
+	(pt 864 72)
+	(bus)
+)
+(connector
+	(pt 864 72)
+	(pt 872 72)
+	(bus)
+)
+(connector
+	(pt 872 80)
+	(pt 872 72)
+	(bus)
+)
+(connector
+	(pt 864 112)
+	(pt 864 104)
+	(bus)
+)
+(connector
+	(pt 864 104)
+	(pt 872 104)
+	(bus)
+)
+(connector
+	(pt 872 112)
+	(pt 872 104)
+	(bus)
+)
+(connector
+	(pt 864 144)
+	(pt 864 136)
+	(bus)
+)
+(connector
+	(pt 864 136)
+	(pt 872 136)
+	(bus)
+)
+(connector
+	(pt 872 144)
+	(pt 872 136)
+	(bus)
+)
+(connector
+	(pt 864 -88)
+	(pt 872 -88)
+	(bus)
+)
+(connector
+	(pt 872 -88)
+	(pt 1160 -88)
+	(bus)
+)
+(connector
+	(pt 864 -48)
+	(pt 872 -48)
+	(bus)
+)
+(connector
+	(pt 872 -48)
+	(pt 1224 -48)
+	(bus)
+)
+(connector
+	(pt 864 -16)
+	(pt 872 -16)
+	(bus)
+)
+(connector
+	(pt 872 -16)
+	(pt 1224 -16)
+	(bus)
+)
+(connector
+	(pt 864 16)
+	(pt 872 16)
+	(bus)
+)
+(connector
+	(pt 872 16)
+	(pt 1224 16)
+	(bus)
+)
+(connector
+	(pt 864 48)
+	(pt 872 48)
+	(bus)
+)
+(connector
+	(pt 872 48)
+	(pt 1224 48)
+	(bus)
+)
+(connector
+	(pt 864 80)
+	(pt 872 80)
+	(bus)
+)
+(connector
+	(pt 872 80)
+	(pt 1224 80)
+	(bus)
+)
+(connector
+	(pt 864 112)
+	(pt 872 112)
+	(bus)
+)
+(connector
+	(pt 872 112)
+	(pt 1224 112)
+	(bus)
+)
+(connector
+	(pt 864 144)
+	(pt 872 144)
+	(bus)
+)
+(connector
+	(pt 872 144)
+	(pt 1224 144)
+	(bus)
+)
+(connector
+	(pt 864 168)
+	(pt 864 160)
+	(bus)
+)
+(connector
+	(pt 864 160)
+	(pt 872 160)
+	(bus)
+)
+(connector
+	(pt 872 168)
+	(pt 872 160)
+	(bus)
+)
+(connector
+	(pt 864 168)
+	(pt 872 168)
+	(bus)
+)
+(connector
+	(pt 872 168)
+	(pt 1152 168)
+	(bus)
+)
+(connector
+	(pt 864 184)
+	(pt 864 176)
+	(bus)
+)
+(connector
+	(pt 864 176)
+	(pt 872 176)
+	(bus)
+)
+(connector
+	(pt 872 184)
+	(pt 872 176)
+	(bus)
+)
+(connector
+	(pt 864 184)
+	(pt 872 184)
+	(bus)
+)
+(connector
+	(pt 872 184)
+	(pt 1168 184)
+	(bus)
+)
+(connector
+	(pt 1152 -64)
+	(pt 1224 -64)
+)
+(connector
+	(pt 1224 -104)
+	(pt 1224 -64)
+)
+(connector
+	(pt 1168 -56)
+	(pt 1224 -56)
+)
+(connector
+	(pt 1224 -64)
+	(pt 1224 -56)
+)
+(connector
+	(pt 1224 -56)
+	(pt 1224 -48)
+)
+(connector
+	(pt 1152 -40)
+	(pt 1224 -40)
+)
+(connector
+	(pt 1168 -32)
+	(pt 1224 -32)
+)
+(connector
+	(pt 1152 -64)
+	(pt 1152 -40)
+	(bus)
+)
+(connector
+	(pt 1224 -48)
+	(pt 1224 -40)
+)
+(connector
+	(pt 1168 -32)
+	(pt 1168 -56)
+	(bus)
+)
+(connector
+	(pt 1224 -40)
+	(pt 1224 -32)
+)
+(connector
+	(pt 1224 -32)
+	(pt 1224 -16)
+)
+(connector
+	(pt 1152 -8)
+	(pt 1224 -8)
+)
+(connector
+	(pt 1168 0)
+	(pt 1224 0)
+)
+(connector
+	(pt 1152 -40)
+	(pt 1152 -8)
+	(bus)
+)
+(connector
+	(pt 1224 -16)
+	(pt 1224 -8)
+)
+(connector
+	(pt 1168 0)
+	(pt 1168 -32)
+	(bus)
+)
+(connector
+	(pt 1224 -8)
+	(pt 1224 0)
+)
+(connector
+	(pt 1224 0)
+	(pt 1224 16)
+)
+(connector
+	(pt 1152 24)
+	(pt 1224 24)
+)
+(connector
+	(pt 1168 32)
+	(pt 1224 32)
+)
+(connector
+	(pt 1152 -8)
+	(pt 1152 24)
+	(bus)
+)
+(connector
+	(pt 1224 16)
+	(pt 1224 24)
+)
+(connector
+	(pt 1168 32)
+	(pt 1168 0)
+	(bus)
+)
+(connector
+	(pt 1224 24)
+	(pt 1224 32)
+)
+(connector
+	(pt 1224 32)
+	(pt 1224 48)
+)
+(connector
+	(pt 1152 56)
+	(pt 1224 56)
+)
+(connector
+	(pt 1168 64)
+	(pt 1224 64)
+)
+(connector
+	(pt 1152 24)
+	(pt 1152 56)
+	(bus)
+)
+(connector
+	(pt 1224 48)
+	(pt 1224 56)
+)
+(connector
+	(pt 1168 64)
+	(pt 1168 32)
+	(bus)
+)
+(connector
+	(pt 1224 56)
+	(pt 1224 64)
+)
+(connector
+	(pt 1224 64)
+	(pt 1224 80)
+)
+(connector
+	(pt 1152 88)
+	(pt 1224 88)
+)
+(connector
+	(pt 1168 96)
+	(pt 1224 96)
+)
+(connector
+	(pt 1152 56)
+	(pt 1152 88)
+	(bus)
+)
+(connector
+	(pt 1224 80)
+	(pt 1224 88)
+)
+(connector
+	(pt 1168 96)
+	(pt 1168 64)
+	(bus)
+)
+(connector
+	(pt 1224 88)
+	(pt 1224 96)
+)
+(connector
+	(pt 1224 96)
+	(pt 1224 112)
+)
+(connector
+	(pt 1152 120)
+	(pt 1224 120)
+)
+(connector
+	(pt 1168 128)
+	(pt 1224 128)
+)
+(connector
+	(pt 1152 88)
+	(pt 1152 120)
+	(bus)
+)
+(connector
+	(pt 1224 112)
+	(pt 1224 120)
+)
+(connector
+	(pt 1168 128)
+	(pt 1168 96)
+	(bus)
+)
+(connector
+	(pt 1224 120)
+	(pt 1224 128)
+)
+(connector
+	(pt 1224 128)
+	(pt 1224 144)
+)
+(connector
+	(pt 1152 152)
+	(pt 1224 152)
+)
+(connector
+	(pt 1168 160)
+	(pt 1224 160)
+)
+(connector
+	(pt 1152 120)
+	(pt 1152 152)
+	(bus)
+)
+(connector
+	(pt 1152 152)
+	(pt 1152 168)
+	(bus)
+)
+(connector
+	(pt 1224 144)
+	(pt 1224 152)
+)
+(connector
+	(pt 1168 184)
+	(pt 1168 160)
+	(bus)
+)
+(connector
+	(pt 1168 160)
+	(pt 1168 128)
+	(bus)
+)
+(connector
+	(pt 1224 152)
+	(pt 1224 160)
+)
+(connector
+	(pt 1224 160)
+	(pt 1224 168)
+)
+(connector
+	(pt 1304 184)
+	(pt 1272 184)
+	(bus)
+)
+(connector
+	(pt 1304 -104)
+	(pt 1304 184)
+	(bus)
+)
+(connector
+	(pt 1272 184)
+	(pt 1272 168)
+	(bus)
+)
+(connector
+	(pt 1272 168)
+	(pt 1288 168)
+)
+(connector
+	(pt 1264 168)
+	(pt 1264 248)
+)
+(connector
+	(pt 1264 248)
+	(pt 1168 248)
+)
+(connector
+	(pt 1248 168)
+	(pt 1264 168)
+)
+(connector
+	(pt 1264 168)
+	(pt 1272 168)
+)
+(connector
+	(pt 1568 -88)
+	(pt 1584 -88)
+)
+(connector
+	(pt 1536 -96)
+	(pt 1568 -96)
+)
+(connector
+	(pt 1568 -96)
+	(pt 1568 -88)
+)
+(connector
+	(pt 1568 -88)
+	(pt 1568 -40)
+)
+(connector
+	(pt 1472 -64)
+	(pt 1472 -24)
+	(bus)
+)
+(connector
+	(pt 1480 -64)
+	(pt 1472 -64)
+	(bus)
+)
+(connector
+	(pt 1472 -24)
+	(pt 1456 -24)
+	(bus)
+)
+(connector
+	(pt 1480 -80)
+	(pt 1472 -80)
+	(bus)
+)
+(connector
+	(pt 1288 -120)
+	(pt 1288 -104)
+)
+(connector
+	(pt 1288 -104)
+	(pt 1288 168)
+)
+(connector
+	(pt 1288 -104)
+	(pt 1304 -104)
+	(bus)
+)
+(connector
+	(pt 1304 -104)
+	(pt 1344 -104)
+	(bus)
+)
+(connector
+	(pt 1344 -112)
+	(pt 1424 -112)
+)
+(connector
+	(pt 1472 -80)
+	(pt 1472 -104)
+	(bus)
+)
+(connector
+	(pt 1472 -104)
+	(pt 1424 -104)
+	(bus)
+)
+(connector
+	(pt 1344 -112)
+	(pt 1344 -104)
+)
+(connector
+	(pt 1344 -104)
+	(pt 1344 -96)
+)
+(connector
+	(pt 1424 -112)
+	(pt 1424 -104)
+)
+(connector
+	(pt 1424 -104)
+	(pt 1424 -96)
+)
+(connector
+	(pt 1408 -96)
+	(pt 1408 -80)
+)
+(connector
+	(pt 1408 -80)
+	(pt 1352 -80)
+)
+(connector
+	(pt 1344 -96)
+	(pt 1408 -96)
+)
+(connector
+	(pt 1408 -96)
+	(pt 1424 -96)
+)
+(connector
+	(pt 1520 -64)
+	(pt 1536 -64)
+	(bus)
+)
+(connector
+	(pt 1536 -96)
+	(pt 1536 -64)
+)
+(connector
+	(pt 1536 -64)
+	(pt 1536 -40)
+)
+(connector
+	(pt 1544 -40)
+	(pt 1544 104)
+)
+(connector
+	(pt 1544 104)
+	(pt 1416 104)
+)
+(connector
+	(pt 1544 -40)
+	(pt 1536 -40)
+)
+(connector
+	(pt 1584 -72)
+	(pt 1576 -72)
+)
+(connector
+	(pt 1576 -72)
+	(pt 1576 152)
+)
+(connector
+	(pt 1576 152)
+	(pt 1416 152)
+)
+(connector
+	(pt 1560 128)
+	(pt 1416 128)
+)
+(connector
+	(pt 1560 -40)
+	(pt 1560 128)
+)
+(connector
+	(pt 1544 -40)
+	(pt 1560 -40)
+)
+(connector
+	(pt 1560 -40)
+	(pt 1568 -40)
+)
+(connector
+	(pt 1648 -80)
+	(pt 1664 -80)
+)
+(connector
+	(pt 1728 -80)
+	(pt 1728 -72)
+)
+(connector
+	(pt 1728 -72)
+	(pt 1720 -72)
+)
+(connector
+	(pt 1720 -72)
+	(pt 1720 -80)
+)
+(connector
+	(pt 1728 -80)
+	(pt 1720 -80)
+)
+(connector
+	(pt 1720 -80)
+	(pt 1704 -80)
+)
+(connector
+	(pt 1424 40)
+	(pt 1424 64)
+	(bus)
+)
+(connector
+	(pt 1424 64)
+	(pt 1384 64)
+	(bus)
+)
+(connector
+	(pt 1496 -48)
+	(pt 1496 88)
+)
+(connector
+	(pt 1496 88)
+	(pt 1376 88)
+)
+(connector
+	(pt 864 -144)
+	(pt 872 -144)
+)
+(connector
+	(pt 872 -144)
+	(pt 872 -136)
+)
+(connector
+	(pt 864 -144)
+	(pt 864 -136)
+)
+(connector
+	(pt 1176 -120)
+	(pt 1176 -136)
+)
+(connector
+	(pt 1176 -136)
+	(pt 1048 -136)
+)
+(connector
+	(pt 1008 -120)
+	(pt 992 -120)
+)
+(connector
+	(pt 864 -136)
+	(pt 872 -136)
+)
+(connector
+	(pt 952 -120)
+	(pt 944 -120)
+	(bus)
+)
+(connector
+	(pt 944 -120)
+	(pt 944 -136)
+	(bus)
+)
+(connector
+	(pt 872 -136)
+	(pt 944 -136)
+)
+(connector
+	(pt 944 -136)
+	(pt 1008 -136)
+)
+(connector
+	(pt 1024 -152)
+	(pt 1024 -200)
+)
+(connector
+	(pt 952 -104)
+	(pt 912 -104)
+)
+(connector
+	(pt 912 -104)
+	(pt 912 -200)
+)
+(connector
+	(pt 768 -200)
+	(pt 912 -200)
+)
+(connector
+	(pt 912 -200)
+	(pt 1024 -200)
+)
+(connector
+	(pt 960 552)
+	(pt 1032 552)
+)
+(connector
+	(pt 792 344)
+	(pt 792 336)
+	(bus)
+)
+(connector
+	(pt 800 336)
+	(pt 792 336)
+	(bus)
+)
+(connector
+	(pt 800 344)
+	(pt 800 336)
+	(bus)
+)
+(connector
+	(pt 824 344)
+	(pt 824 328)
+	(bus)
+)
+(connector
+	(pt 792 344)
+	(pt 800 344)
+	(bus)
+)
+(connector
+	(pt 800 344)
+	(pt 824 344)
+	(bus)
+)
+(connector
+	(pt 800 328)
+	(pt 824 328)
+	(bus)
+)
+(connector
+	(pt 824 328)
+	(pt 840 328)
+	(bus)
+)
+(connector
+	(pt 1008 312)
+	(pt 1080 312)
+)
+(connector
+	(pt 1104 -104)
+	(pt 1104 328)
+	(bus)
+)
+(connector
+	(pt 1104 328)
+	(pt 1080 328)
+	(bus)
+)
+(connector
+	(pt 1008 352)
+	(pt 1080 352)
+)
+(connector
+	(pt 1008 312)
+	(pt 1008 328)
+)
+(connector
+	(pt 1080 312)
+	(pt 1080 328)
+)
+(connector
+	(pt 1080 328)
+	(pt 1080 352)
+)
+(connector
+	(pt 992 328)
+	(pt 992 344)
+)
+(connector
+	(pt 992 344)
+	(pt 1008 344)
+)
+(connector
+	(pt 976 328)
+	(pt 992 328)
+	(bus)
+)
+(connector
+	(pt 992 328)
+	(pt 1008 328)
+	(bus)
+)
+(connector
+	(pt 1008 328)
+	(pt 1008 344)
+)
+(connector
+	(pt 1008 344)
+	(pt 1008 352)
+)
+(connector
+	(pt 960 608)
+	(pt 960 568)
+)
+(connector
+	(pt 960 568)
+	(pt 960 552)
+)
+(connector
+	(pt 920 568)
+	(pt 920 560)
+)
+(connector
+	(pt 920 560)
+	(pt 928 560)
+)
+(connector
+	(pt 928 560)
+	(pt 928 568)
+)
+(connector
+	(pt 920 568)
+	(pt 928 568)
+)
+(connector
+	(pt 928 568)
+	(pt 960 568)
+)
+(connector
+	(pt 56 352)
+	(pt 56 344)
+)
+(connector
+	(pt 56 344)
+	(pt 64 344)
+)
+(connector
+	(pt 64 344)
+	(pt 64 352)
+)
+(connector
+	(pt 88 352)
+	(pt 64 352)
+)
+(connector
+	(pt 96 344)
+	(pt 96 352)
+)
+(connector
+	(pt 120 352)
+	(pt 96 352)
+)
+(connector
+	(pt 88 344)
+	(pt 96 344)
+)
+(connector
+	(pt 88 352)
+	(pt 88 344)
+)
+(connector
+	(pt 128 352)
+	(pt 128 344)
+)
+(connector
+	(pt 152 352)
+	(pt 128 352)
+)
+(connector
+	(pt 120 344)
+	(pt 128 344)
+)
+(connector
+	(pt 120 352)
+	(pt 120 344)
+)
+(connector
+	(pt 160 344)
+	(pt 160 352)
+)
+(connector
+	(pt 184 352)
+	(pt 160 352)
+)
+(connector
+	(pt 152 352)
+	(pt 152 344)
+)
+(connector
+	(pt 152 344)
+	(pt 160 344)
+)
+(connector
+	(pt 192 344)
+	(pt 192 352)
+)
+(connector
+	(pt 216 352)
+	(pt 192 352)
+)
+(connector
+	(pt 184 344)
+	(pt 192 344)
+)
+(connector
+	(pt 184 352)
+	(pt 184 344)
+)
+(connector
+	(pt 256 344)
+	(pt 256 352)
+)
+(connector
+	(pt 248 344)
+	(pt 256 344)
+)
+(connector
+	(pt 248 352)
+	(pt 248 344)
+)
+(connector
+	(pt 216 344)
+	(pt 216 352)
+)
+(connector
+	(pt 216 344)
+	(pt 224 344)
+)
+(connector
+	(pt 224 344)
+	(pt 224 352)
+)
+(connector
+	(pt 224 352)
+	(pt 248 352)
+)
+(connector
+	(pt 256 352)
+	(pt 272 352)
+)
+(connector
+	(pt 56 368)
+	(pt 88 368)
+)
+(connector
+	(pt 96 368)
+	(pt 152 368)
+)
+(connector
+	(pt 160 368)
+	(pt 216 368)
+)
+(connector
+	(pt 224 368)
+	(pt 272 368)
+)
+(connector
+	(pt 1136 600)
+	(pt 1216 600)
+)
+(connector
+	(pt 1136 552)
+	(pt 1216 552)
+)
+(connector
+	(pt 1032 552)
+	(pt 1032 568)
+)
+(connector
+	(pt 1032 568)
+	(pt 1032 608)
+)
+(connector
+	(pt 1136 600)
+	(pt 1136 568)
+)
+(connector
+	(pt 1136 568)
+	(pt 1136 552)
+)
+(connector
+	(pt 1080 616)
+	(pt 1160 616)
+)
+(connector
+	(pt 1080 568)
+	(pt 1080 616)
+)
+(connector
+	(pt 1032 568)
+	(pt 1080 568)
+)
+(connector
+	(pt 1080 568)
+	(pt 1136 568)
+)
+(connector
+	(pt 984 608)
+	(pt 984 656)
+)
+(connector
+	(pt 984 656)
+	(pt 1208 656)
+)
+(connector
+	(pt 960 608)
+	(pt 984 608)
+)
+(connector
+	(pt 1016 640)
+	(pt 1200 640)
+)
+(connector
+	(pt 1016 608)
+	(pt 1016 640)
+)
+(connector
+	(pt 984 608)
+	(pt 1016 608)
+)
+(connector
+	(pt 1016 608)
+	(pt 1032 608)
+)
+(connector
+	(pt 1216 568)
+	(pt 1304 568)
+)
+(connector
+	(pt 1216 600)
+	(pt 1216 568)
+)
+(connector
+	(pt 1216 568)
+	(pt 1216 552)
+)
+(junction (pt 424 528))
+(junction (pt 408 528))
+(junction (pt 104 496))
+(junction (pt 120 496))
+(junction (pt 136 496))
+(junction (pt 152 496))
+(junction (pt 168 496))
+(junction (pt 184 496))
+(junction (pt 200 496))
+(junction (pt 216 496))
+(junction (pt 232 496))
+(junction (pt 248 496))
+(junction (pt 264 496))
+(junction (pt 280 496))
+(junction (pt 296 496))
+(junction (pt 312 496))
+(junction (pt 328 496))
+(junction (pt 344 496))
+(junction (pt 360 496))
+(junction (pt 376 496))
+(junction (pt 392 496))
+(junction (pt 408 496))
+(junction (pt 424 496))
+(junction (pt 440 496))
+(junction (pt 456 496))
+(junction (pt 472 496))
+(junction (pt 488 496))
+(junction (pt 504 496))
+(junction (pt 520 496))
+(junction (pt 536 496))
+(junction (pt 552 496))
+(junction (pt 152 584))
+(junction (pt 184 584))
+(junction (pt 152 600))
+(junction (pt 184 600))
+(junction (pt 216 584))
+(junction (pt 248 584))
+(junction (pt 216 600))
+(junction (pt 248 600))
+(junction (pt 280 584))
+(junction (pt 312 584))
+(junction (pt 280 600))
+(junction (pt 312 600))
+(junction (pt 152 608))
+(junction (pt 152 624))
+(junction (pt 184 608))
+(junction (pt 216 608))
+(junction (pt 184 624))
+(junction (pt 216 624))
+(junction (pt 248 608))
+(junction (pt 280 608))
+(junction (pt 248 624))
+(junction (pt 280 624))
+(junction (pt 312 608))
+(junction (pt 344 608))
+(junction (pt 312 624))
+(junction (pt 344 624))
+(junction (pt 472 608))
+(junction (pt 504 608))
+(junction (pt 536 608))
+(junction (pt 568 608))
+(junction (pt 600 608))
+(junction (pt 632 608))
+(junction (pt 664 608))
+(junction (pt 472 624))
+(junction (pt 504 624))
+(junction (pt 536 624))
+(junction (pt 568 624))
+(junction (pt 600 624))
+(junction (pt 632 624))
+(junction (pt 664 624))
+(junction (pt 456 672))
+(junction (pt 584 672))
+(junction (pt 120 584))
+(junction (pt 120 600))
+(junction (pt 56 800))
+(junction (pt 64 816))
+(junction (pt 1224 -48))
+(junction (pt 1224 -16))
+(junction (pt 1224 -104))
+(junction (pt 1224 16))
+(junction (pt 1224 48))
+(junction (pt 1224 80))
+(junction (pt 1232 168))
+(junction (pt 1224 112))
+(junction (pt 1224 144))
+(junction (pt 1248 168))
+(junction (pt 1264 168))
+(junction (pt 896 280))
+(junction (pt 904 280))
+(junction (pt 800 328))
+(junction (pt 840 328))
+(junction (pt 896 360))
+(junction (pt 952 360))
+(junction (pt 888 240))
+(junction (pt 920 272))
+(junction (pt 872 -88))
+(junction (pt 872 -48))
+(junction (pt 872 -16))
+(junction (pt 872 16))
+(junction (pt 872 48))
+(junction (pt 872 80))
+(junction (pt 872 112))
+(junction (pt 872 144))
+(junction (pt 872 168))
+(junction (pt 872 184))
+(junction (pt 1224 -64))
+(junction (pt 1224 -56))
+(junction (pt 1152 -40))
+(junction (pt 1224 -40))
+(junction (pt 1168 -32))
+(junction (pt 1224 -32))
+(junction (pt 1152 -8))
+(junction (pt 1224 -8))
+(junction (pt 1168 0))
+(junction (pt 1224 0))
+(junction (pt 1152 24))
+(junction (pt 1224 24))
+(junction (pt 1168 32))
+(junction (pt 1224 32))
+(junction (pt 1152 56))
+(junction (pt 1224 56))
+(junction (pt 1168 64))
+(junction (pt 1224 64))
+(junction (pt 1152 88))
+(junction (pt 1224 88))
+(junction (pt 1168 96))
+(junction (pt 1224 96))
+(junction (pt 1152 120))
+(junction (pt 1224 120))
+(junction (pt 1168 128))
+(junction (pt 1224 128))
+(junction (pt 1152 152))
+(junction (pt 1224 152))
+(junction (pt 1168 160))
+(junction (pt 1224 160))
+(junction (pt 1288 -104))
+(junction (pt 1272 168))
+(junction (pt 1568 -88))
+(junction (pt 1304 -104))
+(junction (pt 1344 -104))
+(junction (pt 1424 -104))
+(junction (pt 1408 -96))
+(junction (pt 1536 -64))
+(junction (pt 1560 -40))
+(junction (pt 1544 -40))
+(junction (pt 1720 -80))
+(junction (pt 872 -136))
+(junction (pt 944 -136))
+(junction (pt 912 -200))
+(junction (pt 800 344))
+(junction (pt 824 328))
+(junction (pt 1008 328))
+(junction (pt 1080 328))
+(junction (pt 992 328))
+(junction (pt 1008 344))
+(junction (pt 960 568))
+(junction (pt 928 568))
+(junction (pt 984 608))
+(junction (pt 1016 608))
+(junction (pt 1032 568))
+(junction (pt 1136 568))
+(junction (pt 1080 568))
+(junction (pt 1216 568))
 (text "TM1638_LED_KEY_DRV" (rect -8 -24 501 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 36)))
 (text "2017-04-27th" (rect 440 0 539 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ToDo" (rect 1056 -504 1131 -471)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
+(text "SEQ_part_block" (rect 1056 -368 1320 -335)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
+(text "ctl_detail_block" (rect 1056 -328 1358 -295)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
+(text "by Quartus:sequenser_state_machine" (rect 1064 -288 1705 -255)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
+(text "1MHz" (rect 16 400 49 413)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SCK_o" (rect -32 400 9 413)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_o" (rect 40 608 89 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SPI" (rect -40 520 -16 533)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SCLK_o" (rect 32 544 81 557)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SS_o" (rect 40 512 73 525)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "IDLE=H hold" (rect 0 528 90 541)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 136 608 144 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 160 608 168 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "2" (rect 200 608 208 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "3" (rect 224 608 232 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "4" (rect 264 608 272 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "5" (rect 296 608 304 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "6" (rect 320 608 328 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "7" (rect 352 608 360 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSIOE_o" (rect 32 632 98 645)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "min1us" (rect 448 544 497 557)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 456 608 464 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 480 608 488 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "2" (rect 520 608 528 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "3" (rect 544 608 552 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "4" (rect 584 608 592 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "5" (rect 616 608 624 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "6" (rect 640 608 648 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "7" (rect 672 608 680 621)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "min100ns" (rect 432 504 498 517)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "min1us" (rect 320 504 369 517)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_HCK" (rect 32 488 81 501)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "key_read_timing" (rect -40 656 83 669)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[7]" (rect 440 680 489 693)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[6]" (rect 560 680 609 693)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[5]" (rect 440 696 489 709)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[4]" (rect 560 696 609 709)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[3]" (rect 440 712 489 725)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[1]" (rect 440 728 489 741)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[2]" (rect 560 712 609 725)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY[0]" (rect 560 728 609 741)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "0" (rect 104 584 112 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1" (rect 128 584 136 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "2" (rect 168 584 176 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "3" (rect 192 584 200 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "4" (rect 232 584 240 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "5" (rect 264 584 272 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "6" (rect 288 584 296 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "7" (rect 320 584 328 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF[0]" (rect 0 584 90 597)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "40H" (rect 80 824 104 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ADR0" (rect 192 824 225 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ADR1" (rect 248 824 281 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ADRF" (rect 328 824 361 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "..." (rect 288 832 312 845)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "8FH" (rect 384 824 408 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "42H" (rect 440 824 464 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SS_o" (rect -8 888 25 901)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_o" (rect -8 824 41 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MISO_i" (rect -8 848 41 861)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSIOE_o" (rect -40 864 26 877)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(outline not actual division rate)" (rect -8 312 272 325)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BYTE action" (rect 232 712 374 733)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 16)))
+(text "SCLK_make" (rect 88 416 204 437)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 16)))
+(text "1 frame action" (rect 176 936 357 957)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 16)))
+(text "frame=250Hz" (rect 344 944 434 957)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FRAME_REQ" (rect -56 792 18 805)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DATA load" (rect -48 808 26 821)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BUSY" (rect -24 904 9 917)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "C0H" (rect 136 824 160 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY7,6" (rect 488 848 537 861)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY5,4" (rect 544 848 593 861)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY3,2" (rect 600 848 649 861)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEY1,0" (rect 656 848 705 861)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text ":" (rect 224 96 232 109)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "most right element" (rect 56 64 204 77)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "<port_mane>/<port_width>" (rect 360 32 558 45)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "CK_i" (rect 200 232 233 245)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "XARST_i" (rect 200 248 257 261)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "most left element" (rect 56 120 196 133)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT0_SEGS_i/7" (rect 200 64 307 77)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT1_SEGS_i/7" (rect 200 80 307 93)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT7_SEGS_i/7" (rect 200 120 307 133)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DOTS_i/8" (rect 200 136 266 149)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "LEDS_i/8" (rect 200 152 266 165)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_i/32" (rect 200 184 266 197)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_XDATSEG" (rect 200 200 290 213)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MISO_i" (rect 200 216 249 229)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(SDI)" (rect 248 216 289 229)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "port list" (rect 208 40 282 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_o" (rect 424 64 473 77)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_EN_o" (rect 424 80 498 93)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SS_o" (rect 432 112 465 125)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SCLK_o" (rect 432 96 481 109)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(any_tests other)" (rect 360 176 500 189)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "KEYS_o/8" (rect 416 144 482 157)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUFF/(8*9bit=72)" (rect 1224 -144 1397 -131)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "7SEG_ENC" (rect 1016 296 1082 309)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1.5H" (rect 856 -240 889 -227)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "D" (rect 896 232 904 245)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_i/32" (rect 728 320 794 333)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "/7" (rect 1088 304 1104 317)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT7_SEG_i/7" (rect 776 -96 875 -83)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT6_SEG_i/7" (rect 776 -56 875 -43)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT5_SEG_i/7" (rect 776 -24 875 -11)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT4_SEG_i/7" (rect 776 8 875 21)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT3_SEG_i/7" (rect 776 40 875 53)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT2_SEG_i/7" (rect 776 72 875 85)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT1_SEG_i/7" (rect 776 104 875 117)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT0_SEG_i/7" (rect 776 136 875 149)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DOTS_i/8" (rect 776 160 842 173)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "LEDS_i/8" (rect 784 176 850 189)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[7]" (rect 1200 -80 1224 -67)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[0]" (rect 1184 160 1208 173)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_LD" (rect 1144 192 1234 205)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_SFR1" (rect 1120 232 1227 245)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_SFR9_LD7" (rect 1112 208 1252 221)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BYTE_BUF_LD" (rect 1408 88 1498 101)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "40H" (rect 1376 -32 1400 -19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "8FH" (rect 1376 0 1400 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "42H" (rect 1376 16 1400 29)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "C0H" (rect 1376 -16 1400 -3)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ms7 mask" (rect 1352 -112 1418 -99)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "/ls8" (rect 1296 -120 1329 -107)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MS7MASK_ON" (rect 1320 -96 1402 -83)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BYTE_BUF_SFR" (rect 1416 112 1515 125)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BYTE_BUF/8" (rect 1520 -120 1602 -107)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_MSK" (rect 1416 136 1482 149)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_o" (rect 1736 -80 1785 -67)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FIX_DAT_SEL/2" (rect 1320 48 1427 61)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "USE_FIX_DAT" (rect 1336 72 1426 85)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_XDATSEG" (rect 768 -144 858 -131)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FRAME_REQ" (rect 840 -216 914 -203)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_XDATSEG_a" (rect 1072 -152 1179 -139)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FRAME_REQ" (rect 720 360 794 373)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(DAT_BUF_LD)" (rect 800 344 899 357)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "TM1638_LED_KEY_DRV" (rect 1056 -216 1395 -183)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "MAIN_PART" (rect 1392 -216 1561 -183)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "2107-04-29s:1st" (rect 1568 -216 1691 -203)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "2H" (rect 1568 -192 1584 -179)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "TM1638_LED_KEY_DRV" (rect 952 488 1291 521)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "2107-04-29s:1st" (rect 1520 496 1643 509)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "CONTROLER_PART" (rect 1264 488 1528 521)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 24)))
+(text "BYTE_BUF_LD" (rect 1560 760 1650 773)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MS7MASK_ON" (rect 1552 704 1634 717)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "BYTE_BUF_SFR" (rect 1568 784 1667 797)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_MSK" (rect 1568 808 1634 821)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FIX_DAT_SEL/2" (rect 1552 728 1659 741)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "USE_FIX_DAT" (rect 1552 744 1642 757)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MOSI_OE_o" (rect 1584 864 1658 877)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_LD" (rect 1288 824 1378 837)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_SFR1" (rect 1296 864 1403 877)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_SFR9_LD7" (rect 1288 840 1428 853)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "FRAME_REQ" (rect 1224 552 1298 565)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "clock_divider" (rect 952 536 1059 549)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SUP_DIGIT_i/8" (rect 688 336 795 349)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "SUP_DIGIT_i/8" (rect 200 168 307 181)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MS/5" (rect 928 256 961 269)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[7],[31:28]" (rect 848 312 938 325)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[6:0],[27:0]" (rect 800 224 899 237)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_BUFF/7*(4+1)=35" (rect 896 208 1052 221)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "sup" (rect 1016 336 1040 349)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "dat" (rect 1016 320 1040 333)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MS" (rect 984 344 1000 357)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "DAT_BUF_LSF5" (rect 800 360 899 373)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "CK_i" (rect 904 544 937 557)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "all FF move on this clock" (rect 776 576 982 589)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1/48" (rect 984 576 1017 589)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "about 1MHz" (rect 1152 624 1234 637)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "about 2MHz" (rect 1168 656 1250 669)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_HSCLK" (rect -32 344 34 357)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_XSCLK" (rect -32 360 34 373)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_SCLK" (rect -32 376 25 389)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "1/1024/4" (rect 1152 576 1218 589)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_HSLCK" (rect 1088 640 1154 653)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_XSCLK" (rect 1064 552 1130 565)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_SCLK" (rect 1072 624 1129 637)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "=EN_CK" (rect 1096 600 1145 613)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "(=EN_CK)" (rect 280 360 346 373)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "EN_CK(to every FF)" (rect 744 392 892 405)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(line (pt 376 552)(pt 408 552)(line_width 1))
+(line (pt 408 552)(pt 440 552)(line_width 1))
+(line (pt 376 512)(pt 408 512)(line_width 1))
+(line (pt 408 504)(pt 424 504)(line_width 1))
+(line (pt 104 616)(pt 104 496)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 424 616)(pt 424 496)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 120 496)(pt 120 728)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 408 496)(pt 408 616)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 376 472)(pt 376 656)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 440 656)(pt 440 480)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 352 736)(pt 232 736)(line_width 1))
+(line (pt 200 440)(pt 88 440)(line_width 1))
+(line (pt 176 960)(pt 328 960)(line_width 1))
+(line (pt 912 240)(pt 912 272)(line_width 1))
+(line (pt 912 272)(pt 904 264)(line_width 1))
+(line (pt 1264 -104)(pt 1264 152)(line_width 1))
+(line (pt 1264 -104)(pt 1256 -96)(line_width 1))
+(line (pt 1248 -96)(pt 1248 152)(line_width 1))
+(line (pt 1248 -96)(pt 1240 -88)(line_width 1))
+(line (pt 1560 -88)(pt 1560 -48)(line_width 1))
+(line (pt 1560 -88)(pt 1552 -80)(line_width 1))
+(arc (pt 0 528)(pt 0 648)(rect -16 504 16 648))
