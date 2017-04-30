@@ -19,19 +19,19 @@ module TM1638_LED_KEY_DRV #(
 )(
       input                 CK_i
     , input tri1            XARST_i
-    , input tri0 [ 6 :0]    DAT0_SEGS_i
-    , input tri0 [ 6 :0]    DAT1_SEGS_i
-    , input tri0 [ 6 :0]    DAT2_SEGS_i
-    , input tri0 [ 6 :0]    DAT3_SEGS_i
-    , input tri0 [ 6 :0]    DAT4_SEGS_i
-    , input tri0 [ 6 :0]    DAT5_SEGS_i
-    , input tri0 [ 6 :0]    DAT6_SEGS_i
-    , input tri0 [ 6 :0]    DAT7_SEGS_i
+    , input tri0 [ 6 :0]    DIRECT7SEG0_i
+    , input tri0 [ 6 :0]    DIRECT7SEG1_i
+    , input tri0 [ 6 :0]    DIRECT7SEG2_i
+    , input tri0 [ 6 :0]    DIRECT7SEG3_i
+    , input tri0 [ 6 :0]    DIRECT7SEG4_i
+    , input tri0 [ 6 :0]    DIRECT7SEG5_i
+    , input tri0 [ 6 :0]    DIRECT7SEG6_i
+    , input tri0 [ 6 :0]    DIRECT7SEG7_i
     , input tri0 [ 7 :0]    DOTS_i
     , input tri0 [ 7 :0]    LEDS_i
-    , input tri0 [31 :0]    DAT_i
+    , input tri0 [31 :0]    BIN_DAT_i
     , input tri0 [ 7 :0]    SUP_DIGITS_i
-    , input tri0            DAT_XDATSEG_i
+    , input tri0            ENCBIN_XDIRECT_i
     , input tri0            MISO_i
     , output                MOSI_o
     , output                MOSI_EN_o
@@ -211,132 +211,112 @@ module TM1638_LED_KEY_DRV #(
                     end 
                 end
                 S_LOAD       : begin //7seg convert
-                    if (BYTE_STATE==S_BIT7)
+                    if (BYTE_STATE==S_FINISH)
                         FRAME_STATE <= S_SEND_SET ;
                 end
                 S_SEND_SET   : begin
-                    if (BYTE_STATE==S_BIT7)
+                    if (BYTE_STATE==S_FINISH)
                         FRAME_STATE <= S_LED_ADR_SET ;
                 end
                 S_LED_ADR_SET: begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                    
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED0L ;
                 end
                 S_LED0L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                    
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED0H ;
                 end
                 S_LED0H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED1L ;
                 end
                 S_LED1L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED1H ;
                 end
                 S_LED1H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED2L ;
                 end
                 S_LED2L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED2H ;
                 end
                 S_LED2H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED3L ;
                 end
                 S_LED3L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED3H ;
                 end
-                S_LED2H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
-                end
-                S_LED2L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
-                end
-                S_LED4H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                S_LED3H     : begin 
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED4L ;
                 end
                 S_LED4L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED4H ;
                 end
-                S_LED5H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                S_LED4H     : begin
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED5L ;
                 end
                 S_LED5L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED5H ;
+                end
+                S_LED5H     : begin
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED6L ;
+                end
+                S_LED6L     : begin
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED6H ;
                 end
                 S_LED6H     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED7L ;
                 end
                 S_LED7L     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LEDADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_LED7H ;
                 end
                 S_LED7H     : begin
-                    if (BYTE_STATE==S_BIT7)
+                    if (BYTE_STATE==S_FINISH)
                         FRAME_STATE <= S_LEDPWR_SET ;
-                
                 end
                 S_LEDPWR_SET : begin
-                    if (BYTE_STATE==S_BIT7)
+                    if (BYTE_STATE==S_FINISH)
                         FRAME_STATE <= S_KEY_ADR_SET ;
-                
                 end
                 S_KEY_ADR_SET : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_KEY0 ;
                 end
                 S_KEY0      : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_KEY1 ;
                 
                 end
                 S_KEY1      : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_KEY2 ;
                 
                 end
                 S_KEY2      : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_KEY3 ;
                 
                 end
                 S_KEY3     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_FINISH ;
                 
                 end
                 S_FINISH     : begin
-                    if (BYTE_STATE==S_BIT7)
-                        FRAME_STATE <= S_LED_ADR_SET ;
-                
+                    if (BYTE_STATE==S_FINISH)
+                        FRAME_STATE <= S_IDLE ;
                 end
             endcase
         end

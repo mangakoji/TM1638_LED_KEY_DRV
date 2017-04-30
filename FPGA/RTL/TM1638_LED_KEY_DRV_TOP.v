@@ -1,7 +1,19 @@
-//VR_LOC_DET_TOP.v
-//      VR_LOC_DET top
-//      pulse counter 
+// TM1638_LED_KEY_DRV_TOP.v
+//      TM1638_LED_KEY_DRV_TOP()
+// 
+// TM1638 LED KEY BOARD using driver
+//    demo top on CQ MAX10-FB(Altera MAX10:10M08SAE144C8G)
 //
+// test in aitendo board vvv this
+// http://www.aitendo.com/product/12887
+// maybe move on many boards used TM1638
+//
+//
+// twitter:@manga_koji
+// hatena: id:mangakoji http://mangakoji.hatenablog.com/
+// GitHub :@mangakoji
+//
+//170430u   001 :1st. cp from VR_LOC_DET_TOP.v
 //170408s   004:append SOUNDER
 //          003 :append SERVO
 //          002 :enlarge VR_LOC 00-FF , debug LED7SEG
@@ -17,7 +29,7 @@
 //               1st
 //
 
-module VR_LOC_DET_TOP(
+module TM1638_LED_KEY_DRV_TOP(
       input     CK48M_i     //27
     , input     XPSW_i      //123
     , output    XLED_R_o   //120
@@ -88,23 +100,78 @@ module VR_LOC_DET_TOP(
             , .locked       ( XARST         )
     ) ;
 
-    wire            TPAT_P_o    ;
-    wire            DAT_i       ;
-    wire            TPAT_N_o    ;
-    wire    [ 7 :0] VR_LOC      ;
-    wire            CMP_P       ;
-    wire            CMP_N       ;
-    VR_LOC_DET VR_LOC_DET (
-          .CK_i     ( CK48M_i       )
-        , .XARST_i  ( XARST         )
-        , .EN_CK_i  ( 1'b1          )
-        , .DAT_i    ( DAT_i         )
-        , .TPAT_P_o ( TPAT_P_o      )
-        , .TPAT_N_o ( TPAT_N_o      )
-        , .CMP_P_o  ( CMP_P         )
-        , .CMP_N_o  ( CMP_N         )
-        , .LOC_o    ( VR_LOC        )
+    wire                  CK_i
+    wire  tri1            XARST_i
+    wire  tri0 [ 6 :0]    DAT0_SEGS_i
+    wire  tri0 [ 6 :0]    DAT1_SEGS_i
+    wire  tri0 [ 6 :0]    DAT2_SEGS_i
+    wire  tri0 [ 6 :0]    DAT3_SEGS_i
+    wire  tri0 [ 6 :0]    DAT4_SEGS_i
+    wire  tri0 [ 6 :0]    DAT5_SEGS_i
+    wire  tri0 [ 6 :0]    DAT6_SEGS_i
+    wire  tri0 [ 6 :0]    DAT7_SEGS_i
+    wire  tri0 [ 7 :0]    DOTS_i
+    wire  tri0 [ 7 :0]    LEDS_i
+    wire  tri0 [31 :0]    DAT_i
+    wire  tri0 [ 7 :0]    SUP_DIGITS_i
+
+    wire            ENCBIN_XDIRECT
+
+    wire            MISO_i
+    wire            MOSI_o
+    wire            MOSI_EN_o
+    wire            SCLK_o
+    wire            SS_o
+    wire    [ 7:0]  KEYS
+
+
+
+    assign ENCBIN_XDIRECT = 1'b0 ; //
+    TM1638_LED_KEY_DRV #(
+          parameter C_FCK = 48_000_000  // Hz
+        , parameter C_FSCLK = 1_000     // Hz
+        , parameter C_FPS   =   250     // cycle(Hz)
+    ) TM1638_LED_KEY_DR (
+          .CK_i         ( CK48M         )
+        , .XARST_i      ( XARST         )
+        , .DIRECT7SEG0_i  ( 7'b0111111 )
+        , .DIRECT7SEG1_i  ( 7'b0000110 )
+        , .DIRECT7SEG2_i  ( 7'b1011011 )
+        , .DIRECT7SEG3_i  ( 7'b1001111 )
+        , .DIRECT7SEG4_i  ( 7'b1100110 )
+        , .DIRECT7SEG5_i  ( 7'b1101101 )
+        , .DIRECT7SEG6_i  ( 7'b1111101 )
+        , .DIRECT7SEG7_i  ( 7'b0100111 )
+        , .DOTS_i       ( 8'hFF     )
+        , .LEDS_i       ( KEYS      )
+        , .BIN_DAT_i        ( {
+                            4'hF
+                          , 4'hE
+                          , 4'hD
+                          , 4'hC
+                          , 4'hB
+                          , 4'hA
+                          , 4'h9
+                          , 4'h8
+                        }
+        )
+        , .SUP_DIGITS_i ()
+        , .ENCBIN_XDIRECT_i  ( ENCBIN_XDIRECT )
+        , .MISO_i
+        , .MOSI_o
+        , .MOSI_EN_o
+        , .SCLK_o
+        , .SS_o         (
+        , .KEYS_o       ( KEYS      )
     ) ;
+    
+
+
+
+
+
+
+
     assign P38 = TPAT_P_o ;
     assign DAT_i = P39 ;
     assign P41 = TPAT_N_o ;
@@ -208,4 +275,4 @@ module VR_LOC_DET_TOP(
     
 
 
-endmodule //VR_LOC_DET_TOP
+endmodule //TM1638_LED_KEY_DRV_TOP
