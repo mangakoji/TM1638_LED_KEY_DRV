@@ -132,41 +132,42 @@ module TM1638_LED_KEY_DRV_TOP(
         , parameter C_FSCLK = 1_000     // Hz
         , parameter C_FPS   =   250     // cycle(Hz)
     ) TM1638_LED_KEY_DR (
-          .CK_i         ( CK48M         )
-        , .XARST_i      ( XARST         )
-        , .DIRECT7SEG0_i  ( 7'b0111111 )
-        , .DIRECT7SEG1_i  ( 7'b0000110 )
-        , .DIRECT7SEG2_i  ( 7'b1011011 )
-        , .DIRECT7SEG3_i  ( 7'b1001111 )
-        , .DIRECT7SEG4_i  ( 7'b1100110 )
-        , .DIRECT7SEG5_i  ( 7'b1101101 )
-        , .DIRECT7SEG6_i  ( 7'b1111101 )
-        , .DIRECT7SEG7_i  ( 7'b0100111 )
-        , .DOTS_i       ( 8'hFF     )
-        , .LEDS_i       ( KEYS      )
+          .CK_i             ( CK48M         )
+        , .XARST_i          ( XARST         )
+        , .DIRECT7SEG0_i    ( 7'b0111111 )
+        , .DIRECT7SEG1_i    ( 7'b0000110 )
+        , .DIRECT7SEG2_i    ( 7'b1011011 )
+        , .DIRECT7SEG3_i    ( 7'b1001111 )
+        , .DIRECT7SEG4_i    ( 7'b1100110 )
+        , .DIRECT7SEG5_i    ( 7'b1101101 )
+        , .DIRECT7SEG6_i    ( 7'b1111101 )
+        , .DIRECT7SEG7_i    ( 7'b0100111 )
+        , .DOTS_i           ( KEYS     )
+        , .LEDS_i           ( 8'hFF     )
         , .BIN_DAT_i        ( {
-                            4'hF
-                          , 4'hE
-                          , 4'hD
-                          , 4'hC
-                          , 4'hB
-                          , 4'hA
-                          , 4'h9
-                          , 4'h8
-                        }
-        )
-        , .SUP_DIGITS_i ()
-        , .ENCBIN_XDIRECT_i  ( ENCBIN_XDIRECT )
-        , .MISO_i
-        , .MOSI_o
-        , .MOSI_EN_o
-        , .SCLK_o
-        , .SS_o         (
-        , .KEYS_o       ( KEYS      )
+                                4'hF
+                                , 4'hE
+                                , 4'hD
+                                , 4'hC
+                                , 4'hB
+                                , 4'hA
+                                , 4'h9
+                                , 4'h8
+                             })
+        , .SUP_DIGITS_i     ()
+        , .ENCBIN_XDIRECT_i ()
+        , .MISO_i           ( MISO_i        )
+        , .MOSI_o           ( MOSI_o        )
+        , .MOSI_EN_o        ( MOSI_EN_o     )
+        , .SCLK_o           ( SCLK_o        )
+        , .SS_o             ( SS_o          )
+        , .KEYS_o           ( KEYS          )
     ) ;
     
-
-
+    assign P124 = ( MOSI_EN_o ) ? MOSI_o : 1'bZ ;
+    assign MISO_i = P124 ;  //DIO
+    assign P127 = SCLK_o ;  //CLK
+    assign P130 = SS_o ;    //STB
 
 
 
