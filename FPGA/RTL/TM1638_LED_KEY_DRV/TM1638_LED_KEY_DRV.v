@@ -10,7 +10,8 @@
 // twitter:@manga_koji
 // hatena: id:mangakoji http://mangakoji.hatenablog.com/
 // GitHub :@mangakoji
-//2017-04-30sa  :1st
+//2017-05-01mo  :1ce wrote
+//2017-04-29sa  :1st
 
 module TM1638_LED_KEY_DRV #(
       parameter C_FCK = 48_000_000  // Hz
@@ -34,7 +35,7 @@ module TM1638_LED_KEY_DRV #(
     , input tri0            ENCBIN_XDIRECT_i
     , input tri0            MISO_i
     , output                MOSI_o
-    , output                MOSI_EN_o
+    , output                MOSI_OE_o
     , output                SCLK_o
     , output                SS_o
     , output    [ 7:0]      KEYS_o
@@ -61,7 +62,7 @@ module TM1638_LED_KEY_DRV #(
         ((C_FCK % (C_FSCLK * 2)) ? 1 : 0) 
     ;
     localparam C_HALF_DIV_W = log2( C_HALF_DIV_LEN ) ;
-    reg EN_HSCLK ;
+//    reg EN_HSCLK ;
     reg EN_SCLK ;
     reg EN_XSCLK ;
     reg EN_SCLK_D ;
@@ -69,17 +70,17 @@ module TM1638_LED_KEY_DRV #(
     reg [C_HALF_DIV_W-1 :0] H_DIV_CTR ;
     reg                     DIV_CTR ;
     wire    H_DIV_CTR_cy ;
-    assign H_DIV_CTE_cy = &(H_DIV_CTR | ~(C_HALF_DIV_LEN-1)) ;
+    assign H_DIV_CTR_cy = &(H_DIV_CTR | ~(C_HALF_DIV_LEN-1)) ;
     always @(posedge CK_i or negedge XARST_i) 
         if (~ XARST_i) begin
             H_DIV_CTR <= 'd0 ;
-            DIV_CTR  <= 1'd0 ;
-            EN_HSCLK <= '1b0 ;
-            EN_SCLK  <= '1b0 ;
-            EN_XSCLK <= '1b0 ;
+            DIV_CTR  <=  1'd0 ;
+//            EN_HSCLK <=  1'b0 ;
+            EN_SCLK  <=  1'b0 ;
+            EN_XSCLK <=  1'b0 ;
             EN_SCLK_D <= 1'b0 ;
         end else begin
-            EN_HSCLK <= H_DIV_CTR_cy ;
+//            EN_HSCLK <= H_DIV_CTR_cy ;
             EN_SCLK  <= H_DIV_CTR_cy & ~ DIV_CTR ;
             EN_XSCLK <= H_DIV_CTR_cy &   DIV_CTR ;
             EN_SCLK_D <= EN_SCLK ;
@@ -102,14 +103,17 @@ module TM1638_LED_KEY_DRV #(
     localparam C_F_CTR_W = log2( C_FRAME_SCLK_N ) ;
     reg [C_F_CTR_W-1:0] F_CTR ;
     reg                 FRAME_REQ ;
+    reg                 FRAME_REQ_D ;
     wire                F_CTR_cy ;
     assign F_CTR_cy = &(F_CTR | ~( C_FRAME_SCLK_N-1)) ;
     always @(posedge CK_i or negedge XARST_i) 
         if (~ XARST_i) begin
             F_CTR <= 'd0 ;
-            FRAME_REQ ;
+            FRAME_REQ <= 1'b0 ;
+            FRAME_REQ_D <= 1'b0 ;
         end else if (EN_CK) begin
             FRAME_REQ <= F_CTR_cy ;
+            FRAME_REQ_D <= FRAME_REQ ;
             if (F_CTR_cy)
                 F_CTR<= 'd0 ;
             else
@@ -119,7 +123,6 @@ module TM1638_LED_KEY_DRV #(
 
     // inter byte seqenser
     //
-    wire BYTE_req ;//??
     localparam S_STARTUP    = 'hFF ;
     localparam S_IDLE       =   0 ;
     localparam S_LOAD       =   1 ;
@@ -141,9 +144,17 @@ module TM1638_LED_KEY_DRV #(
             case (BYTE_STATE)
                 S_STARTUP    :
                     BYTE_STATE <= S_IDLE ;
-                S_IDLE       :
-                    if ( BYTE_req )
+                S_IDLE       : begin
+                    if (FRAME_REQ )
                         BYTE_STATE <= S_LOAD ;
+                    case ( FRAME_STATE )
+                          S_IDLE
+                        , S_KEY3 :
+                            ; //pass 
+                        default :
+                            BYTE_STATE <= S_LOAD ;
+                    endcase
+                end
                 S_LOAD       :
                     BYTE_STATE <= S_BIT0 ;
                 S_BIT0       :
@@ -175,7 +186,7 @@ module TM1638_LED_KEY_DRV #(
 //    localparam S_IDLE       =   0 ;
 //    localparam S_LOAD       =   1 ;
     localparam S_SEND_SET   =   2 ;
-    localparam S_LED_ADR_SET=   4
+    localparam S_LED_ADR_SET=   4 ;
     localparam S_LED0L     = 'h10 ;
     localparam S_LED0H     = 'h11 ;
     localparam S_LED1L     = 'h12 ;
@@ -183,12 +194,12 @@ module TM1638_LED_KEY_DRV #(
     localparam S_LED2L     = 'h14 ;
     localparam S_LED2H     = 'h15 ;
     localparam S_LED3L     = 'h16 ;
-    localparam S_LED2H     = 'h17 ;
-    localparam S_LED2L     = 'h18 ;
+    localparam S_LED3H     = 'h17 ;
+    localparam S_LED4L     = 'h18 ;
     localparam S_LED4H     = 'h19 ;
-    localparam S_LED4L     = 'h1A ;
+    localparam S_LED5L     = 'h1A ;
     localparam S_LED5H     = 'h1B ;
-    localparam S_LED5L     = 'h1C ;
+    localparam S_LED6L     = 'h1C ;
     localparam S_LED6H     = 'h1D ;
     localparam S_LED7L     = 'h1E ;
     localparam S_LED7H     = 'h1F ;
@@ -198,7 +209,6 @@ module TM1638_LED_KEY_DRV #(
     localparam S_KEY1      = 'h21 ;
     localparam S_KEY2      = 'h22 ;
     localparam S_KEY3      = 'h23 ;
-    reg         MISO_OE ;
     reg [ 7 :0] FRAME_STATE ;
     always @(posedge CK_i or negedge XARST_i) 
         if (~ XARST_i)
@@ -206,7 +216,7 @@ module TM1638_LED_KEY_DRV #(
         else if (EN_CK)
             case (FRAME_STATE)
                 S_STARTUP    :
-                    FRAME_STATE <= S_IDLE
+                    FRAME_STATE <= S_IDLE ;
                 S_IDLE       :
                     if ( FRAME_REQ )
                         FRAME_STATE <= S_LOAD ;
@@ -293,36 +303,35 @@ module TM1638_LED_KEY_DRV #(
     reg MOSI_OE  ;
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
-            MISO_OE <= 1'b0 ;
+            MOSI_OE <= 1'b0 ;
         else if( EN_CK) // EN_XSCLK
             if (BYTE_STATE == S_BIT7)
-                MISO_OE <= 1'b0 ;
-            else if (BYTE_STATE == S_LOAD)
+                MOSI_OE <= 1'b0 ;
+            else if (BYTE_STATE == S_LOAD) begin
                 case (FRAME_STATE)
-                    S_SEND_SET :
-                    S_LED_ADR_SET :
-                    S_LED0L :
-                    S_LED0H :
-                    S_LED1L :
-                    S_LED1H :
-                    S_LED2L :
-                    S_LED2H :
-                    S_LED3L :
-                    S_LED3H :
-                    S_LED4L :
-                    S_LED4H :
-                    S_LED5L :
-                    S_LED5H :
-                    S_LED6L :
-                    S_LED6H :
-                    S_LED7L :
-                    S_LED7H :
-                    S_LEDPWR_SET :
-                    S_KEY_ADR_SET :
-                        MISO_OE <= 1'b1 ;
+                      S_SEND_SET
+                    , S_LED_ADR_SET
+                    , S_LED0L
+                    , S_LED0H
+                    , S_LED1L
+                    , S_LED1H
+                    , S_LED2L
+                    , S_LED2H
+                    , S_LED3L
+                    , S_LED3H
+                    , S_LED4L
+                    , S_LED4H
+                    , S_LED5L
+                    , S_LED5H
+                    , S_LED6L
+                    , S_LED6H
+                    , S_LED7L
+                    , S_LED7H
+                    , S_LEDPWR_SET
+                    , S_KEY_ADR_SET :
+                        MOSI_OE <= 1'b1 ;
                 endcase
-    assign MOSI_OE_o = MOSI_OE ;
-
+            end
 
     reg SCLK ;
     always @(posedge CK_i or negedge XARST_i)
@@ -332,19 +341,18 @@ module TM1638_LED_KEY_DRV #(
             SCLK <= 1'b1 ;
         else if (EN_XSCLK)
             case (BYTE_STATE)
-                S_LOAD :
-                S_BIT0 :
-                S_BIT1 :
-                S_BIT2 :
-                S_BIT3 :
-                S_BIT4 :
-                S_BIT5 :
-                S_BIT6 :
-                S_BIT7 :
+                  S_LOAD
+                , S_BIT0
+                , S_BIT1
+                , S_BIT2
+                , S_BIT3
+                , S_BIT4
+                , S_BIT5
+                , S_BIT6
+                , S_BIT7 :
                     SCLK <= 1'b0 ;
             endcase
 
-    assign SCLK_o = SCLK ;
 
     reg SS ;
     always @(posedge CK_i or negedge XARST_i)
@@ -353,74 +361,67 @@ module TM1638_LED_KEY_DRV #(
         else if( EN_CK)
             if (BYTE_STATE == S_LOAD)
                 case ( FRAME_STATE )
-                    S_SEND_SET :
-                    S_LED_ADR_SET :
-                    S_LEDPWR_SET :
-                    S_KEY_ADR_SET :
+                      S_SEND_SET
+                    , S_LED_ADR_SET
+                    , S_LEDPWR_SET
+                    , S_KEY_ADR_SET :
                         SS <= 1'b1 ;
+                endcase
         else if (EN_SCLK)
             if (BYTE_STATE == S_FINISH)
                 case ( FRAME_STATE )
-                    S_SEND_ADR_SET :
-                    S_LED7H :
-                    S_LEDPWR_SET :
-                    S_KEY3 :
+                      S_SEND_SET
+                    , S_LED7H
+                    , S_LEDPWR_SET
+                    , S_KEY3 :
                         SS <= 1'b0 ;
+                endcase
+    assign SCLK_o    = SCLK  ;
+    assign MOSI_OE_o = MOSI_OE ;
+    assign SS_o      = SS ;
 
-    
+
+
     // main data part
     //
     //
-
-    reg             ENC_SHIFT ;
-    always @(posedge CK_i or negedge XARST_i)
-        if (~ XARST_i)
-            ENC_SHIFT <= 1'b0 ;
-        else if ( EN_CK )
-            if (FRAME_REQ )
-                ENC_SHIFT <= 1'b1 ;
-            else
-                case (BYTE_STATE)
-                    S_BIT5 :
-                        ENC_SHIFT <= 1'b0 ;
-                endcase
-            end
-    wire    [34:0]  DAT_BUF ;   //5bit downsized, but too complex
+    reg     [34:0]  DAT_BUF ;   //5bit downsized, but too complex
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
             DAT_BUF <= 35'd0 ;
         else if (EN_CK)
             if (FRAME_REQ )
                 DAT_BUF <= {
-                      SUP_DIGITS_i[6]
-                    , BIN_DAT     [6*4 +:4]
-                    , SUP_DIGITS_i[5]
-                    , BIN_DAT     [5*4 +:4]
-                    , SUP_DIGITS_i[4]
-                    , BIN_DAT     [4*4 +:4]
-                    , SUP_DIGITS_i[3]
-                    , BIN_DAT     [3*4 +:4]
-                    , SUP_DIGITS_i[2]
-                    , BIN_DAT     [2*4 +:4]
-                    , SUP_DIGITS_i[1]
-                    , BIN_DAT     [1*4 +:4]
-                    , SUP_DIGITS_i[0]
-                    , BIN_DAT     [0*4 +:4]
+                      SUP_DIGITS_i  [6]
+                    , BIN_DAT_i     [6*4 +:4]
+                    , SUP_DIGITS_i  [5]
+                    , BIN_DAT_i     [5*4 +:4]
+                    , SUP_DIGITS_i  [4]
+                    , BIN_DAT_i     [4*4 +:4]
+                    , SUP_DIGITS_i  [3]
+                    , BIN_DAT_i     [3*4 +:4]
+                    , SUP_DIGITS_i  [2]
+                    , BIN_DAT_i     [2*4 +:4]
+                    , SUP_DIGITS_i  [1]
+                    , BIN_DAT_i     [1*4 +:4]
+                    , SUP_DIGITS_i  [0]
+                    , BIN_DAT_i     [0*4 +:4]
                 } ;
             else
                 DAT_BUF <= {
                       DAT_BUF[29:0]
                     , 5'b0
                 } ;
+
+
     wire [ 3 :0] octet_seled ;
     wire        sup_now ;
     assign {sup_now, octet_seled } = 
         ( FRAME_REQ ) ? 
-                {SUP_DIGITS_i[7], BIN_DAT[31:28]} 
+                {SUP_DIGITS_i[7], BIN_DAT_i[31:28]} 
             : 
                 DAT_BUF[34 -:5] 
     ;
-
 
     // endcoder for  LED7-segment
     //   a 
@@ -428,10 +429,6 @@ module TM1638_LED_KEY_DRV #(
     //    g
     // e     c
     //    d 
-
-    always @(posedge CK_i or negedge XARST_i)
-        if (~ XARST_i)
-
     wire    [ 6 :0] enced_7seg ;
     function [6:0] f_seg_enc ;
         input sup_now ;
@@ -473,92 +470,158 @@ module TM1638_LED_KEY_DRV #(
             ENCBIN_XDIRECT_D <= ENCBIN_XDIRECT_i ;
 //    assign ENCBIN_XDIRECT_y = (FRAME_REQ)? ENCBIN_XDIRECT_i : ENCBIN_XDIRECT
 
+    reg             ENC_SHIFT ;
+    always @(posedge CK_i or negedge XARST_i)
+        if (~ XARST_i)
+            ENC_SHIFT <= 1'b0 ;
+        else if ( EN_CK )
+            if (FRAME_REQ )
+                ENC_SHIFT <= 1'b1 ;
+            else
+                case (BYTE_STATE)
+                    S_BIT5 :
+                        ENC_SHIFT <= 1'b0 ;
+                endcase
+
 
     reg     [71 :0] MAIN_BUFF ; //7bit downsize but too complex.
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
             MAIN_BUFF <= 72'd0 ;
-        else if (ENC_CK)
-            else if ( FRAME_REQ ) begin
+        else if ( EN_CK )
+            if ( FRAME_REQ ) begin
                  MAIN_BUFF[71:7] <= {
-                     , LEDS_i[0]
+                       LEDS_i[0]
                      , DOTS_i[0]
-                     , DIRECT7SG0_i
+                     , DIRECT7SEG0_i
                      , LEDS_i[1]
                      , DOTS_i[1]
-                     , DIRECT7SG1_i
+                     , DIRECT7SEG1_i
                      , LEDS_i[2]
                      , DOTS_i[2]
-                     , DIRECT7SG2_i
+                     , DIRECT7SEG2_i
                      , LEDS_i[3]
                      , DOTS_i[3]
-                     , DIRECT7SG3_i
+                     , DIRECT7SEG3_i
                      , LEDS_i[4]
                      , DOTS_i[4]
-                     , DIRECT7SG4_i
+                     , DIRECT7SEG4_i
                      , LEDS_i[5]
                      , DOTS_i[5]
-                     , DIRECT7SG5_i
+                     , DIRECT7SEG5_i
                      , LEDS_i[6]
                      , DOTS_i[6]
-                     , DIRECT7SG6_i
+                     , DIRECT7SEG6_i
                      , LEDS_i[7]
                      , DOTS_i[7]
-                 }
-                 if (ENCBIN_XDIRECT)
-                     MAIN_BUF[6:0] <= enced_7seg ;
+                 } ;
+                 if ( ENCBIN_XDIRECT_i )
+                     MAIN_BUFF[6:0] <= enced_7seg ;
                  else
-                     MAIN_BUF[6:0] <= DIRECT7SEG7_i ;
-             end else if (FRAME_REQ_D & ENC_SHIFT)
+                     MAIN_BUFF[6:0] <= DIRECT7SEG7_i ;
+            end else if (FRAME_REQ_D & ENC_SHIFT)
                  case (FRAME_STATE)
                      S_LOAD :
-                         MAIN_BUF <=  {
-                               MAIN_BUF[ 8: 0]
-                             , MAIN_BUF[71:18]
-                             , MAIN_BUF[17:16]
-                             , enced_7seg 
-                         } ;
-                 endcase
-             else 
-                 case (FRAME_STATE)
-                     S_LED0L :
-                     S_LED1L :
-                     S_LED2L :
-                     S_LED3L :
-                     S_LED4L :
-                     S_LED5L :
-                     S_LED6L :
-                     S_LED7L :
-                         case ( BYTE_STATE )
-                             S_BIT0 :
-                             S_BIT1 :
-                             S_BIT2 :
-                             S_BIT3 :
-                             S_BIT4 :
-                             S_BIT5 :
-                             S_BIT6 :
-                             S_BIT7 :
-                                 MAIN_BUF <= {
-                                      MAIN_BUF[0]
-                                     , MAIN_BUF[71:1]
+                        if (ENCBIN_XDIRECT_D) 
+                            MAIN_BUFF <=  {
+                                   MAIN_BUFF[ 8: 0]
+                                , MAIN_BUFF[71:18]
+                                , MAIN_BUFF[17:16]
+                                , enced_7seg 
+                            } ;
+                endcase
+            else 
+                case (FRAME_STATE)
+                       S_LED0L
+                     , S_LED1L
+                     , S_LED2L
+                     , S_LED3L
+                     , S_LED4L
+                     , S_LED5L
+                     , S_LED6L
+                     , S_LED7L :
+                        case ( BYTE_STATE )
+                               S_BIT0
+                             , S_BIT1
+                             , S_BIT2
+                             , S_BIT3
+                             , S_BIT4
+                             , S_BIT5
+                             , S_BIT6
+                             , S_BIT7 :
+                                 MAIN_BUFF <= {
+                                      MAIN_BUFF[0]
+                                     , MAIN_BUFF[71:1]
                                  } ;
                          endcase
-                     S_LED0H :
-                     S_LED1H :
-                     S_LED2H :
-                     S_LED3H :
-                     S_LED4H :
-                     S_LED5H :
-                     S_LED6H :
-                     S_LED7H :
-                         case ( BYE_STATE )
-                             S_BIT0 :
-                             S_BIT1 :
-                                 MAIN_BUF <= {
-                                       MAIN_BUF[0]
-                                     , MAIN_BUF[71:1]
-                                 }
+                       S_LED0H
+                     , S_LED1H
+                     , S_LED2H
+                     , S_LED3H
+                     , S_LED4H
+                     , S_LED5H
+                     , S_LED6H
+                     , S_LED7H :
+                         case ( BYTE_STATE )
+                               S_BIT0
+                             , S_BIT1 :
+                                 MAIN_BUFF <= {
+                                       MAIN_BUFF[0]
+                                     , MAIN_BUFF[71:1]
+                                 } ;
                          endcase
+                endcase
+
+
+    // output BYTE buffer 
+    //
+    reg [ 7 :0] BYTE_BUF ;
+    always @(posedge CK_i or negedge XARST_i) 
+        if ( ~ XARST_i )
+            BYTE_BUF <= 8'h0 ;
+        else if ( EN_CK )
+            case ( BYTE_STATE )
+                S_LOAD :
+                    case ( FRAME_STATE )
+                        S_SEND_SET :
+                            BYTE_BUF <= 8'h40 ;
+                        S_LED_ADR_SET :
+                            BYTE_BUF <= 8'hC0 ;
+                        S_LEDPWR_SET :
+                            BYTE_BUF <= 8'h8F ;
+                        S_KEY_ADR_SET :
+                            BYTE_BUF <= 8'h42 ;
+                          S_LED0L
+                        , S_LED1L
+                        , S_LED2L
+                        , S_LED3L
+                        , S_LED4L
+                        , S_LED5L
+                        , S_LED6L
+                        , S_LED7L :
+                            BYTE_BUF <= MAIN_BUFF[7:0] ;
+                          S_LED0L
+                        , S_LED1L
+                        , S_LED2L
+                        , S_LED3L
+                        , S_LED4L
+                        , S_LED5L
+                        , S_LED6L
+                        , S_LED7L :
+                            BYTE_BUF <= {6'b0000_00 , MAIN_BUFF[1:0]} ;
+                    endcase
+                  S_BIT0
+                , S_BIT1
+                , S_BIT2
+                , S_BIT3
+                , S_BIT4
+                , S_BIT5
+                , S_BIT6
+                , S_BIT7 :
+                    BYTE_BUF <= {1'b0 , BYTE_BUF[7:1]} ;
+        endcase
+
+    assign MOSI_o = BYTE_BUF[0] ;
 
 
     reg [ 7 :0] KEYS ;
@@ -568,27 +631,34 @@ module TM1638_LED_KEY_DRV #(
         else if ( EN_SCLK_D )
             case (FRAME_STATE)
                 S_KEY0 : 
-                    if ( BYTE_STATE == S_BIT0)
-                        KEYS[7] <= MISO_i ;
-                    else if(BYTE_STATE == S_BIT4)
-                        KEYS[6] <= MISO_i ;
+                    case (BYTE_STATE)
+                        S_BIT0 :
+                            KEYS[7] <= MISO_i ;
+                        S_BIT4 :
+                            KEYS[6] <= MISO_i ;
+                    endcase
                 S_KEY1 : 
-                    if ( BYTE_STATE == S_BIT0)
-                        KEYS[5] <= MISO_i ;
-                    else if(BYTE_STATE == S_BIT4)
-                        KEYS[4] <= MISO_i ;
+                    case (BYTE_STATE)
+                        S_BIT0 :
+                            KEYS[5] <= MISO_i ;
+                        S_BIT4 :
+                            KEYS[4] <= MISO_i ;
+                    endcase
                 S_KEY2 : 
-                    if ( BYTE_STATE == S_BIT0)
-                        KEYS[3] <= MISO_i ;
-                    else if(BYTE_STATE == S_BIT4)
-                        KEYS[2] <= MISO_i ;
+                    case (BYTE_STATE)
+                        S_BIT0 :
+                            KEYS[3] <= MISO_i ;
+                        S_BIT4 :
+                            KEYS[2] <= MISO_i ;
+                    endcase
                 S_KEY3 : 
-                    if ( BYTE_STATE == S_BIT0)
-                        KEYS[1] <= MISO_i ;
-                    else if(BYTE_STATE == S_BIT4)
-                        KEYS[0] <= MISO_i ;
+                    case (BYTE_STATE)
+                        S_BIT0 :
+                            KEYS[1] <= MISO_i ;
+                        S_BIT4 :
+                            KEYS[0] <= MISO_i ;
+                    endcase
             endcase
     assign KEYS_o = KEYS ;
 
-endmodule
-
+endmodule //TM1638_LED_KEY_DRV()

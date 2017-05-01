@@ -88,8 +88,6 @@ module TM1638_LED_KEY_DRV_TOP(
 
 
     // start
-    wire            CK              ;
-    wire            XAR             ;
     wire            XARST           ;
     wire            CK196M          ;
     assign CK = CK48M_i ;
@@ -100,39 +98,22 @@ module TM1638_LED_KEY_DRV_TOP(
             , .locked       ( XARST         )
     ) ;
 
-    wire                  CK_i
-    wire  tri1            XARST_i
-    wire  tri0 [ 6 :0]    DAT0_SEGS_i
-    wire  tri0 [ 6 :0]    DAT1_SEGS_i
-    wire  tri0 [ 6 :0]    DAT2_SEGS_i
-    wire  tri0 [ 6 :0]    DAT3_SEGS_i
-    wire  tri0 [ 6 :0]    DAT4_SEGS_i
-    wire  tri0 [ 6 :0]    DAT5_SEGS_i
-    wire  tri0 [ 6 :0]    DAT6_SEGS_i
-    wire  tri0 [ 6 :0]    DAT7_SEGS_i
-    wire  tri0 [ 7 :0]    DOTS_i
-    wire  tri0 [ 7 :0]    LEDS_i
-    wire  tri0 [31 :0]    DAT_i
-    wire  tri0 [ 7 :0]    SUP_DIGITS_i
+    wire            ENCBIN_XDIRECT_i  ;
+    wire            MISO_i          ;
+    wire            MOSI            ;
+    wire            MOSI_OE         ;
+    wire            SCLK_o          ;
+    wire            SS_o            ;
+    wire    [ 7:0]  KEYS            ;
 
-    wire            ENCBIN_XDIRECT
+    assign ENCBIN_XDIRECT_i = 1'b0 ; //
 
-    wire            MISO_i
-    wire            MOSI_o
-    wire            MOSI_EN_o
-    wire            SCLK_o
-    wire            SS_o
-    wire    [ 7:0]  KEYS
-
-
-
-    assign ENCBIN_XDIRECT = 1'b0 ; //
     TM1638_LED_KEY_DRV #(
-          parameter C_FCK = 48_000_000  // Hz
-        , parameter C_FSCLK = 1_000     // Hz
-        , parameter C_FPS   =   250     // cycle(Hz)
+          .C_FCK    ( C_FCK         )// Hz
+        , .C_FSCLK  ( 1_000         )// Hz
+        , .C_FPS    ( 250           )// cycle(Hz)
     ) TM1638_LED_KEY_DR (
-          .CK_i             ( CK48M         )
+          .CK_i             ( CK            )
         , .XARST_i          ( XARST         )
         , .DIRECT7SEG0_i    ( 7'b0111111 )
         , .DIRECT7SEG1_i    ( 7'b0000110 )
@@ -155,16 +136,16 @@ module TM1638_LED_KEY_DRV_TOP(
                                 , 4'h8
                              })
         , .SUP_DIGITS_i     ()
-        , .ENCBIN_XDIRECT_i ()
+        , .ENCBIN_XDIRECT_i ( ENCBIN_XDIRECT_i)
         , .MISO_i           ( MISO_i        )
-        , .MOSI_o           ( MOSI_o        )
-        , .MOSI_EN_o        ( MOSI_EN_o     )
+        , .MOSI_o           ( MOSI          )
+        , .MOSI_OE_o        ( MOSI_OE       )
         , .SCLK_o           ( SCLK_o        )
         , .SS_o             ( SS_o          )
         , .KEYS_o           ( KEYS          )
     ) ;
     
-    assign P124 = ( MOSI_EN_o ) ? MOSI_o : 1'bZ ;
+    assign P124 = ( MOSI_OE ) ? MOSI : 1'bZ ; //DIO
     assign MISO_i = P124 ;  //DIO
     assign P127 = SCLK_o ;  //CLK
     assign P130 = SS_o ;    //STB
@@ -173,13 +154,13 @@ module TM1638_LED_KEY_DRV_TOP(
 
 
 
-    assign P38 = TPAT_P_o ;
-    assign DAT_i = P39 ;
-    assign P41 = TPAT_N_o ;
-
-    assign P43 = CMP_P ;
-    assign P44 = CMP_N ;
-    
+//    assign P38 = TPAT_P_o ;
+//    assign MISO_i = P39 ;
+//    assign P41 = TPAT_N_o ;
+//
+//    assign P43 = CMP_P ;
+//    assign P44 = CMP_N ;
+//    
 //    reg [3 :0] DAT_D        ;
 //    reg [4 :0] TPAT_P_D     ;
 //    reg [5 :0] CMP_P_ADJ    ;
@@ -200,79 +181,78 @@ module TM1638_LED_KEY_DRV_TOP(
 //    assign P47 = CMP_P_ADJ[4] ;
 //    assign P48 = CMP_P_ADJ[5] ;
 
-    wire        QQ_o     ;
-    DELTA_SIGMA_1BIT_DAC #(
-        .C_DAT_W        ( 8 )
-    ) u_DELTA_SIGMA_DAC (
-          .CK           ( CK          )
-        , .XARST_i      ( XARST       )
-        , .DAT_i        ( VR_LOC      )
-        , .QQ_o         ( QQ_o        )
-        , .XQQ_o        ()
-    ) ; //u_DELTA_SIGNA_DAC
+//    wire        QQ_o     ;
+//    DELTA_SIGMA_1BIT_DAC #(
+//        .C_DAT_W        ( 8 )
+//    ) u_DELTA_SIGMA_DAC (
+//          .CK           ( CK          )
+//        , .XARST_i      ( XARST       )
+//        , .DAT_i        ( VR_LOC      )
+//        , .QQ_o         ( QQ_o        )
+//        , .XQQ_o        ()
+//    ) ; //u_DELTA_SIGNA_DAC
+//
+//    assign P17 = QQ_o ;
 
-    assign P17 = QQ_o ;
 
-
-    wire    [ 3 :0]     ACT_DIGIT_o ;
-    wire    [ 6 :0]     SEG7_o      ;
-    LED7SEG_DRV #(
-          .C_FCK   ( 48_000_000 )
-        , .C_FBLINK ( 1_0000     )
-    ) u_LED7SEG_DRV (
-          .CK_i         ( CK48M_i   )
-        , .XARST_i      ( XARST )
-        , .LATCH_i      ()
-        , .DAT_i        ( {8'h0 , VR_LOC} )
-        , .BUS_SUP0     ( 1'b1          )
-        , .ACT_DIGIT_o  ( ACT_DIGIT_o     )// act H out
-        , .SEG7_o       ( SEG7_o          )// segment out ;act H
-    ) ;
-    assign P62 = ~ SEG7_o[3] ;//d 3
-    assign P61 = ~ SEG7_o[0] ;//a 0
-    assign P60 = ~ SEG7_o[1] ;//b 1
-    assign P59 = ~ SEG7_o[5] ;//f 5
-    assign P58 = ~ SEG7_o[6] ;//g 6
-    assign P57 = ~ SEG7_o[2] ;//c 2
+//    wire    [ 3 :0]     ACT_DIGIT_o ;
+//    wire    [ 6 :0]     SEG7_o      ;
+//    LED7SEG_DRV #(
+//          .C_FCK   ( 48_000_000 )
+//        , .C_FBLINK ( 1_0000     )
+//    ) u_LED7SEG_DRV (
+//          .CK_i         ( CK48M_i   )
+//        , .XARST_i      ( XARST )
+//        , .LATCH_i      ()
+//        , .DAT_i        ( {8'h0 , VR_LOC} )
+//        , .BUS_SUP0     ( 1'b1          )
+//        , .ACT_DIGIT_o  ( ACT_DIGIT_o     )// act H out
+//        , .SEG7_o       ( SEG7_o          )// segment out ;act H
+//    ) ;
+//    assign P62 = ~ SEG7_o[3] ;//d 3
+//    assign P61 = ~ SEG7_o[0] ;//a 0
+//    assign P60 = ~ SEG7_o[1] ;//b 1
+//    assign P59 = ~ SEG7_o[5] ;//f 5
+//    assign P58 = ~ SEG7_o[6] ;//g 6
+//    assign P57 = ~ SEG7_o[2] ;//c 2
 //    assign P56 = 
-    assign P55 = ~ SEG7_o[4] ;//e 4
-
-    assign P52 = ACT_DIGIT_o[3] ; //A3
-    assign P50 = ACT_DIGIT_o[2] ; //A2
+//    assign P55 = ~ SEG7_o[4] ;//e 4
+//    assign P52 = ACT_DIGIT_o[3] ; //A3
+//    assign P50 = ACT_DIGIT_o[2] ; //A2
 //    assign P48 = //dot
 //    assign P47 = 
-    assign P46 = ACT_DIGIT_o[1] ;//A1
-    assign P45 = ACT_DIGIT_o[0] ;//A0
+//    assign P46 = ACT_DIGIT_o[1] ;//A1
+//    assign P45 = ACT_DIGIT_o[0] ;//A0
 
-    assign XLED_R_o = ~ VR_LOC[7] ;
+    assign XLED_R_o = ~ 1'b0 ;
     assign XLED_G_o = ~ 1'b0 ;
     assign XLED_B_o = ~ 1'b0 ;
 
-    wire        SERVO_o         ;
-    wire        SERVO_FRAME_o   ;
-    SERVO_JR_DRV #(
-         .C_FCK ( 48_000_000    ) //[Hz]
-    ) u_SERVO_JR_DRV (
-          .CK_i     ( CK48M_i   )
-        , .XARST_i  ( XARST     )
-        , .DAT_i    ( VR_LOC    )
-        , .SERVO_o  ( SERVO_o   )
-        , .FRAME_o  ( SERVO_FRAME_o   )
-    ) ;
-    assign P14 = SERVO_o ;
-    assign P13 = SERVO_FRAME_o ;
+//    wire        SERVO_o         ;
+//    wire        SERVO_FRAME_o   ;
+//    SERVO_JR_DRV #(
+//         .C_FCK ( 48_000_000    ) //[Hz]
+//    ) u_SERVO_JR_DRV (
+//          .CK_i     ( CK48M_i   )
+//        , .XARST_i  ( XARST     )
+//        , .DAT_i    ( VR_LOC    )
+//        , .SERVO_o  ( SERVO_o   )
+//        , .FRAME_o  ( SERVO_FRAME_o   )
+//    ) ;
+//    assign P14 = SERVO_o ;
+//    assign P13 = SERVO_FRAME_o ;
 
-    wire    SOUND_o     ;
-    wire    XSOUND_o    ;
-    SOUNDER u_SONDER(
-          .CK_i     ( CK48M_i   )
-        , .XARST_i  ( XARST     )
-        , .KEY_i    ( VR_LOC    )
-        , .SOUND_o  ( SOUND_o   )
-        , .XSOUND_o ( XSOUND_o   )
-    ) ;
-    assign P124 = SOUND_o ;
-    assign P127 = XSOUND_o ;
+//    wire    SOUND_o     ;
+//    wire    XSOUND_o    ;
+//    SOUNDER u_SONDER(
+//          .CK_i     ( CK48M_i   )
+//        , .XARST_i  ( XARST     )
+//        , .KEY_i    ( VR_LOC    )
+//        , .SOUND_o  ( SOUND_o   )
+//        , .XSOUND_o ( XSOUND_o   )
+//    ) ;
+//    assign P124 = SOUND_o ;
+//    assign P127 = XSOUND_o ;
     
 
 
