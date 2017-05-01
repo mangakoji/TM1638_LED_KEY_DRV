@@ -13,6 +13,7 @@
 // hatena: id:mangakoji http://mangakoji.hatenablog.com/
 // GitHub :@mangakoji
 //
+//170501m  002 :1st. compile is passed , and debug start
 //170430u   001 :1st. cp from VR_LOC_DET_TOP.v
 //170408s   004:append SOUNDER
 //          003 :append SERVO
@@ -105,14 +106,18 @@ module TM1638_LED_KEY_DRV_TOP(
     wire            SCLK_o          ;
     wire            SS_o            ;
     wire    [ 7:0]  KEYS            ;
-
+    wire            DB_FRAME_REQ_o  ;
+    wire            DB_EN_SCLK_o    ;
+    wire            DB_BUSY_o       ;
+    wire            DB_BYTE_BUSY_o  ;
+    wire            DB_KEY_STATE_o  ;
     assign ENCBIN_XDIRECT_i = 1'b0 ; //
 
     TM1638_LED_KEY_DRV #(
           .C_FCK    ( C_FCK         )// Hz
-        , .C_FSCLK  ( 1_000         )// Hz
+        , .C_FSCLK  ( 1_000_000     )// Hz
         , .C_FPS    ( 250           )// cycle(Hz)
-    ) TM1638_LED_KEY_DR (
+    ) TM1638_LED_KEY_DRV (
           .CK_i             ( CK            )
         , .XARST_i          ( XARST         )
         , .DIRECT7SEG0_i    ( 7'b0111111 )
@@ -143,15 +148,21 @@ module TM1638_LED_KEY_DRV_TOP(
         , .SCLK_o           ( SCLK_o        )
         , .SS_o             ( SS_o          )
         , .KEYS_o           ( KEYS          )
+        , .DB_FRAME_REQ_o   ( DB_FRAME_REQ_o    )
+        , .DB_EN_SCLK_o     ( DB_EN_SCLK_o      )
+        , .DB_BUSY_o        ( DB_BUSY_o         )
+        , .DB_BYTE_BUSY_o   ( DB_BYTE_BUSY_o    )
+        , .DB_KEY_STATE_o   ( DB_KEY_STATE_o    )
     ) ;
     
     assign P124 = ( MOSI_OE ) ? MOSI : 1'bZ ; //DIO
+//    assign P124 = MOSI ;
     assign MISO_i = P124 ;  //DIO
     assign P127 = SCLK_o ;  //CLK
     assign P130 = SS_o ;    //STB
-
-
-
+    assign P131 = DB_FRAME_REQ_o ;
+    assign P132 = DB_BUSY_o;
+    assign P134 = DB_KEY_STATE_o;
 
 
 //    assign P38 = TPAT_P_o ;
