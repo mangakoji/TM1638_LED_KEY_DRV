@@ -113,7 +113,7 @@ module TM1638_LED_KEY_DRV_TOP(
     reg             ENCBIN_XDIRECT ;
     wire            ENCBIN_XDIRECT_i  ;
     assign ENCBIN_XDIRECT_i = ENCBIN_XDIRECT ; //
-
+    reg [7:0]   SUP_DIGITS ;
     TM1638_LED_KEY_DRV #(
           .C_FCK    ( C_FCK         )// Hz
         , .C_FSCLK  ( 1_000_000     )// Hz
@@ -141,7 +141,7 @@ module TM1638_LED_KEY_DRV_TOP(
                                 , 4'h9
                                 , 4'h8
                              })
-        , .SUP_DIGITS_i     ()
+        , .SUP_DIGITS_i     ( SUP_DIGITS    )
         , .ENCBIN_XDIRECT_i ( ENCBIN_XDIRECT_i)
         , .MISO_i           ( MISO_i        )
         , .MOSI_o           ( MOSI          )
@@ -163,6 +163,13 @@ module TM1638_LED_KEY_DRV_TOP(
         if (KEYS[0] & KEYS_D[0])
             ENCBIN_XDIRECT <= ~ ENCBIN_XDIRECT ;
 
+    generate
+        genvar g_idx ;
+        for (g_idx=0 ; g_idx<8 ; g_idx=g_idx+1)begin :gen_SUPS
+            always @ (posedge CK)
+                    SUP_DIGITS[g_idx] <= KEYS[ g_idx ] ;
+        end
+    endgenerate 
 
     assign P124 = ( MOSI_OE ) ? MOSI : 1'bZ ; //DIO
 //    assign P124 = MOSI ;

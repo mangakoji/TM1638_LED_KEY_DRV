@@ -12,7 +12,8 @@
 // GitHub :@mangakoji
 //
 //
-//2017-05-02tu  011 :almost passed, remind SUP_DIGITS
+//2017-05-02tu  013 :all feature passed
+//              011 :almost passed, remind SUP_DIGITS
 //              010 :DIRECT passed, ENC7SEG debug prepare commit
 //2017-05-01mo  008 :1st compile is passed , debug start
 //              007 :1ce wrote
@@ -549,7 +550,7 @@ module TM1638_LED_KEY_DRV #(
         ( FRAME_REQ ) ? 
                 {SUP_DIGITS_i[0], BIN_DAT_i[3:0]} 
             : 
-                DAT_BUFF[ 3 :0] 
+                DAT_BUFF[ 4 :0] 
     ;
 
     // endcoder for  LED7-segment
@@ -564,7 +565,7 @@ module TM1638_LED_KEY_DRV #(
         input [3:0] octet;
     begin
         if (sup_now)
-            f_seg_enc = 7'b1000000 ;
+            f_seg_enc = 7'b000_0000 ;
         else
           case( octet )
                               //  gfedcba

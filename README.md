@@ -1,7 +1,9 @@
 TM1638_LED_KEY_DRV
 ====================
-Now Even tooo early WIP.
+Core module is complete.
+now WIP a demo version.
 
+used TM1638 LED & KEY Boad Driver
 
 
 ## Description 
