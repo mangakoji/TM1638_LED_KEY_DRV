@@ -20,6 +20,7 @@ module SUBREG_TIM_DIV #(
 )(
       input                             CK_i
     , input tri1                        XARST_i
+    , input tri0                        RST_i
     , input tri0    [C_PERIOD_W-1 :0]   PERIOD_i
     , input tri0    [C_PERIOD_W-1 :0]   PULSE_N_i
     , output                            EN_CK_o
@@ -42,6 +43,8 @@ module SUBREG_TIM_DIV #(
     ;
     always @(posedge CK_i or negedge XARST_i)
         if ( ~ XARST_i)
+            DIV_CTR <= 'd0 ;
+        else if ( RST_i )
             DIV_CTR <= 'd0 ;
         else
             DIV_CTR <= DIV_CTR_a ;

@@ -1,18 +1,40 @@
 TM1638_LED_KEY_DRV
-====================
-Core module is complete.
-now WIP a demo version.
-
+===================
 used TM1638 LED & KEY Boad Driver
 
+HW complete.
+but doc WIP.
 
 ## Description 
 FPGA
 
 show block chart 
-chart/TM1638_LED_LEY_DRV.bdf on Quartus
+chart/TM1638_LED_KEY_DRV.bdf on Quartus
+
+This project is 7SEG LED & KEY driver used TM1638
+I test on aitendo board follow 
+http://www.aitendo.com/product/12887
+
+driver module name is 
+~/FPGA/RTL/TM1638_LED_KEY_DRV.v
 
 
+
+1. set system clock speed on C_FCK, as Hz
+
+2. if you show binary code , input BIN_DAT_i/32
+3. if you want direct 7seg drive, connect DIRECT7SEG[0:7]_i
+   
+
+
+include TB_~~~
+you can simple RTL behaver sim on this same code.
+
+*.
+~/K-7SEG8D1638-SKETTCH/*
+is a board test code use arduino. wrote by aitendo.
+character code is broken , I corrected.
+BOMUTF16 is not match arudion.
 
 ## Features
 

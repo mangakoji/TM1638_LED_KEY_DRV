@@ -121,23 +121,34 @@ module TM1638_LED_KEY_DRV_TOP(
     } ;
     wire [ 7 :0]    EN_CKS  ;
     reg  [ 3 :0]    TIM_CTRS [7:0];
+    reg  [ 7 :0]    LEDS    ;
     generate
         genvar g_idx ;
         for (g_idx=0 ; g_idx<8 ; g_idx=g_idx+1)begin :gen_timectr
             SUBREG_TIM_DIV #(
-                .C_PERIOD_W( log2('d48_000_000_0) )
+                .C_PERIOD_W( log2('d180_000_000_0) )
             )SUBREG_TIM_DIV(
                   .CK_i     ( CK                    )
                 , .XARST_i  ( XARST                 )
-                , .PERIOD_i ( 'd48_000_000_0          )
+                , .RST_i    ( KEYS[1]               )
+                , .PERIOD_i ( 'd180_000_000          )
                 , .PULSE_N_i( C_PULSE_NS[ 8*g_idx +:8]   )
                 , .EN_CK_o  ( EN_CKS    [ g_idx ]   )
             ) ;
             always @ (posedge CK or negedge XARST)
                 if ( ~ XARST)
                     TIM_CTRS[g_idx] <= 'd0 ;
+                else if (KEYS[1])
+                    TIM_CTRS[g_idx] <= 'd0 ;
                 else if (EN_CKS[g_idx])
                     TIM_CTRS[g_idx] <= TIM_CTRS[g_idx] + C_INCDATS[4*g_idx+:4] ;
+            always @(posedge CK or negedge XARST)
+                if ( ~ XARST)
+                    LEDS[g_idx] <= 1'b0 ;
+                else
+                    if (g_idx==0)
+                        LEDS[g_idx] <= (TIM_CTRS[g_idx] == TIM_CTRS[7]) ;                    else
+                        LEDS[g_idx] <= (TIM_CTRS[g_idx] == TIM_CTRS[g_idx-1]) ;
         end
     endgenerate
     wire            MISO_i          ;
@@ -171,7 +182,7 @@ module TM1638_LED_KEY_DRV_TOP(
         , .DIRECT7SEG6_i    ( 7'b1111101 )
         , .DIRECT7SEG7_i    ( 7'b0100111 )
         , .DOTS_i           ( KEYS      )
-        , .LEDS_i           ( ~KEYS      )
+        , .LEDS_i           ( LEDS      )
         , .BIN_DAT_i        ( {
                                   TIM_CTRS[7]
                                 , TIM_CTRS[6]
