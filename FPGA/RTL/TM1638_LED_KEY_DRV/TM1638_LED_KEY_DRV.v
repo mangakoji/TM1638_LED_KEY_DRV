@@ -12,6 +12,7 @@
 // GitHub :@mangakoji
 //
 //
+//2017-05-02tu  010 :DIRECT passed, ENC7SEG debug prepare commit
 //2017-05-01mo  008 :1st compile is passed , debug start
 //              007 :1ce wrote
 //2017-04-29sa  :1st
@@ -159,8 +160,7 @@ module TM1638_LED_KEY_DRV #(
                     BYTE_STATE <= S_IDLE ;
                 S_IDLE       : 
                     case ( FRAME_STATE )
-                          S_IDLE
-                        , S_KEY3 :
+                          S_IDLE :
                             ; //pass 
                         default :
                             BYTE_STATE <= S_LOAD ;
@@ -453,16 +453,23 @@ module TM1638_LED_KEY_DRV #(
         else if( EN_SCLK )
             SCLK <= 1'b1 ;
         else if (EN_XSCLK)
-            case (BYTE_STATE)
-                  S_BIT0
-                , S_BIT1
-                , S_BIT2
-                , S_BIT3
-                , S_BIT4
-                , S_BIT5
-                , S_BIT6
-                , S_BIT7 :
-                    SCLK <= 1'b0 ;
+            case ( FRAME_STATE)
+                  S_IDLE 
+                , S_LOAD
+                , S_FINISH :
+                    SCLK <= 1'b1 ;
+                default :
+                    case (BYTE_STATE)
+                          S_LOAD
+                        , S_BIT0
+                        , S_BIT1
+                        , S_BIT2
+                        , S_BIT3
+                        , S_BIT4
+                        , S_BIT5
+                        , S_BIT6 :
+                            SCLK <= 1'b0 ;
+                    endcase
             endcase
 
 
@@ -640,7 +647,7 @@ module TM1638_LED_KEY_DRV #(
                      MAIN_BUFF[6:0] <= enced_7seg ;
                  else
                      MAIN_BUFF[6:0] <= DIRECT7SEG7_i ;
-            end else if (FRAME_REQ_D & ENC_SHIFT)
+            end else if (FRAME_REQ_D | ENC_SHIFT)
                  case (FRAME_STATE)
                      S_LOAD :
                         if (ENCBIN_XDIRECT_D) 
@@ -684,8 +691,7 @@ module TM1638_LED_KEY_DRV #(
                      , S_LED6H
                      , S_LED7H :
                          case ( BYTE_STATE )
-                               S_BIT0
-                             , S_BIT1 :
+                               S_BIT0 :
                                  MAIN_BUFF <= {
                                        MAIN_BUFF[0]
                                      , MAIN_BUFF[71:1]
@@ -721,15 +727,15 @@ module TM1638_LED_KEY_DRV #(
                         , S_LED6L
                         , S_LED7L :
                             BYTE_BUF <= MAIN_BUFF[7:0] ;
-                          S_LED0L
-                        , S_LED1L
-                        , S_LED2L
-                        , S_LED3L
-                        , S_LED4L
-                        , S_LED5L
-                        , S_LED6L
-                        , S_LED7L :
-                            BYTE_BUF <= {6'b0000_00 , MAIN_BUFF[1:0]} ;
+                          S_LED0H
+                        , S_LED1H
+                        , S_LED2H
+                        , S_LED3H
+                        , S_LED4H
+                        , S_LED5H
+                        , S_LED6H
+                        , S_LED7H :
+                            BYTE_BUF <= {7'b0000_000 , MAIN_BUFF[0]} ;
                     endcase
                   S_BIT0
                 , S_BIT1
@@ -785,3 +791,95 @@ module TM1638_LED_KEY_DRV #(
     assign DB_FRAME_REQ_o = FRAME_REQ ;
     assign DB_EN_CK_o = EN_CK ;
 endmodule //TM1638_LED_KEY_DRV()
+
+
+
+`timescale 1ns/1ns
+module TB_TM1638_LED_KEY_DRV #(
+    parameter C_C = 10.0
+)(
+) ;
+    reg     CK  ;
+    initial begin
+        CK <= 1'b1 ;
+        forever begin
+            #( C_C /2) ;
+            CK <= ~ CK ;
+        end
+    end
+    reg XARST   ;
+    initial begin
+        XARST <= 1'b1 ;
+        #( 0.1 * C_C) ;
+            XARST <= 1'b0 ;
+        #( 2.1 * C_C) ;
+            XARST <= 1'b1 ;
+    end
+
+    wire            ENCBIN_XDIRECT_i  ;
+    wire            MISO_i          ;
+    wire            MOSI            ;
+    wire            MOSI_OE         ;
+    wire            SCLK_o          ;
+    wire            SS_o            ;
+    wire    [ 7:0]  KEYS            ;
+    wire            DB_FRAME_REQ_o  ;
+    wire            DB_EN_SCLK_o    ;
+    wire            DB_BUSY_o       ;
+    wire            DB_BYTE_BUSY_o  ;
+    wire            DB_KEY_STATE_o  ;
+    assign ENCBIN_XDIRECT_i = 1'b1 ; //
+    TM1638_LED_KEY_DRV #(
+          .C_FCK    ( 4096         )// Hz
+        , .C_FSCLK  ( 1024             )// Hz
+        , .C_FPS    ( 1           )// cycle(Hz)
+    ) TM1638_LED_KEY_DRV (
+          .CK_i             ( CK            )
+        , .XARST_i          ( XARST         )
+        , .DIRECT7SEG0_i    ( 7'b0111111 )
+        , .DIRECT7SEG1_i    ( 7'b0000110 )
+        , .DIRECT7SEG2_i    ( 7'b1011011 )
+        , .DIRECT7SEG3_i    ( 7'b1001111 )
+        , .DIRECT7SEG4_i    ( 7'b1100110 )
+        , .DIRECT7SEG5_i    ( 7'b1101101 )
+        , .DIRECT7SEG6_i    ( 7'b1111101 )
+        , .DIRECT7SEG7_i    ( 7'b0100111 )
+        , .DOTS_i           ( KEYS     )
+        , .LEDS_i           ( 8'hFF     )
+        , .BIN_DAT_i        ( {
+                                  4'hF
+                                , 4'hE
+                                , 4'hD
+                                , 4'hC
+                                , 4'hB
+                                , 4'hA
+                                , 4'h9
+                                , 4'h8
+                             })
+        , .SUP_DIGITS_i     ()
+        , .ENCBIN_XDIRECT_i ( ENCBIN_XDIRECT_i)
+        , .MISO_i           ( MISO_i        )
+        , .MOSI_o           ( MOSI          )
+        , .MOSI_OE_o        ( MOSI_OE       )
+        , .SCLK_o           ( SCLK_o        )
+        , .SS_o             ( SS_o          )
+        , .KEYS_o           ( KEYS          )
+        , .DB_FRAME_REQ_o   ( DB_FRAME_REQ_o    )
+        , .DB_EN_SCLK_o     ( DB_EN_SCLK_o      )
+        , .DB_BUSY_o        ( DB_BUSY_o         )
+        , .DB_BYTE_BUSY_o   ( DB_BYTE_BUSY_o    )
+        , .DB_KEY_STATE_o   ( DB_KEY_STATE_o    )
+    ) ;
+    
+    integer TB_CTR ;
+    initial begin
+        TB_CTR <= 'd0 ;
+        repeat ( 100  ) begin
+            repeat ( 100 )
+                @(posedge CK) ;
+            TB_CTR  <= TB_CTR +1 ;
+        end
+        $stop ;
+    end
+
+endmodule

@@ -99,7 +99,6 @@ module TM1638_LED_KEY_DRV_TOP(
             , .locked       ( XARST         )
     ) ;
 
-    wire            ENCBIN_XDIRECT_i  ;
     wire            MISO_i          ;
     wire            MOSI            ;
     wire            MOSI_OE         ;
@@ -111,7 +110,9 @@ module TM1638_LED_KEY_DRV_TOP(
     wire            DB_BUSY_o       ;
     wire            DB_BYTE_BUSY_o  ;
     wire            DB_KEY_STATE_o  ;
-    assign ENCBIN_XDIRECT_i = 1'b0 ; //
+    reg             ENCBIN_XDIRECT ;
+    wire            ENCBIN_XDIRECT_i  ;
+    assign ENCBIN_XDIRECT_i = ENCBIN_XDIRECT ; //
 
     TM1638_LED_KEY_DRV #(
           .C_FCK    ( C_FCK         )// Hz
@@ -128,8 +129,8 @@ module TM1638_LED_KEY_DRV_TOP(
         , .DIRECT7SEG5_i    ( 7'b1101101 )
         , .DIRECT7SEG6_i    ( 7'b1111101 )
         , .DIRECT7SEG7_i    ( 7'b0100111 )
-        , .DOTS_i           ( KEYS     )
-        , .LEDS_i           ( 8'hFF     )
+        , .DOTS_i           ( KEYS      )
+        , .LEDS_i           ( ~KEYS      )
         , .BIN_DAT_i        ( {
                                 4'hF
                                 , 4'hE
@@ -154,7 +155,15 @@ module TM1638_LED_KEY_DRV_TOP(
         , .DB_BYTE_BUSY_o   ( DB_BYTE_BUSY_o    )
         , .DB_KEY_STATE_o   ( DB_KEY_STATE_o    )
     ) ;
-    
+    reg [7:0] KEYS_D ;
+    always @ (posedge CK )
+        KEYS_D <= KEYS ;
+
+    always @ (posedge CK)
+        if (KEYS[0] & KEYS_D[0])
+            ENCBIN_XDIRECT <= ~ ENCBIN_XDIRECT ;
+
+
     assign P124 = ( MOSI_OE ) ? MOSI : 1'bZ ; //DIO
 //    assign P124 = MOSI ;
     assign MISO_i = P124 ;  //DIO
