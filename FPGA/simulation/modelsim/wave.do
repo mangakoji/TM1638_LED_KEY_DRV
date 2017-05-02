@@ -53,25 +53,25 @@ add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/FRAME_REQ_D
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/F_CTR_cy
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/FRAME_STATE
-add wave -noupdate -expand -group DRV -radix hexadecimal -childformat {{{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[7]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[6]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[5]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[4]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[3]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[2]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[1]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[0]} -radix hexadecimal}} -radixshowbase 1 -expand -subitemconfig {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[7]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[6]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[5]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[4]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[3]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[2]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[1]} {-radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[0]} {-radix hexadecimal}} /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE
+add wave -noupdate -expand -group DRV -radix hexadecimal -childformat {{{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[7]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[6]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[5]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[4]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[3]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[2]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[1]} -radix hexadecimal} {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[0]} -radix hexadecimal}} -radixshowbase 1 -expand -subitemconfig {{/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[7]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[6]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[5]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[4]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[3]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[2]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[1]} {-height 15 -radix hexadecimal} {/TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE[0]} {-height 15 -radix hexadecimal}} /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_STATE
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BUSY
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_BUSY
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/KEY_STATE
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/MOSI_OE
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/SCLK
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/SS
-add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/DAT_BUF
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/octet_seled
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/sup_now
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/enced_7seg
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/ENCBIN_XDIRECT_D
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/ENC_SHIFT
+add wave -noupdate -expand -group DRV /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/DAT_BUFF
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/MAIN_BUFF
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/BYTE_BUF
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/KEYS
 add wave -noupdate -expand -group DRV -radix hexadecimal /TB_TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV/DB_EN_CK_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {99345 ns} 0}
+WaveRestoreCursors {{Cursor 1} {1527 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -87,4 +87,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {99040 ns} {100040 ns}
+WaveRestoreZoom {0 ns} {1771 ns}

@@ -12,7 +12,8 @@
 // GitHub :@mangakoji
 //
 //
-//2017-05-02tu  010 :DIRECT passed, ENC7SEG debug prepare commit
+//2017-05-02tu  011 :almost passed, remind SUP_DIGITS
+//              010 :DIRECT passed, ENC7SEG debug prepare commit
 //2017-05-01mo  008 :1st compile is passed , debug start
 //              007 :1ce wrote
 //2017-04-29sa  :1st
@@ -513,14 +514,16 @@ module TM1638_LED_KEY_DRV #(
     // main data part
     //
     //
-    reg     [34:0]  DAT_BUF ;   //5bit downsized, but too complex
+    reg     [34:0]  DAT_BUFF ;   //5bit downsized, but too complex
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
-            DAT_BUF <= 35'd0 ;
+            DAT_BUFF <= 35'd0 ;
         else if (EN_CK)
             if (FRAME_REQ )
-                DAT_BUF <= {
-                      SUP_DIGITS_i  [6]
+                DAT_BUFF <= {
+                      SUP_DIGITS_i  [7]
+                    , BIN_DAT_i     [7*4 +:4]
+                    , SUP_DIGITS_i  [6]
                     , BIN_DAT_i     [6*4 +:4]
                     , SUP_DIGITS_i  [5]
                     , BIN_DAT_i     [5*4 +:4]
@@ -532,13 +535,11 @@ module TM1638_LED_KEY_DRV #(
                     , BIN_DAT_i     [2*4 +:4]
                     , SUP_DIGITS_i  [1]
                     , BIN_DAT_i     [1*4 +:4]
-                    , SUP_DIGITS_i  [0]
-                    , BIN_DAT_i     [0*4 +:4]
                 } ;
             else
-                DAT_BUF <= {
-                      DAT_BUF[29:0]
-                    , 5'b0
+                DAT_BUFF <= {
+                      5'b0
+                    , DAT_BUFF[34:5]
                 } ;
 
 
@@ -546,9 +547,9 @@ module TM1638_LED_KEY_DRV #(
     wire        sup_now ;
     assign {sup_now, octet_seled } = 
         ( FRAME_REQ ) ? 
-                {SUP_DIGITS_i[7], BIN_DAT_i[31:28]} 
+                {SUP_DIGITS_i[0], BIN_DAT_i[3:0]} 
             : 
-                DAT_BUF[34 -:5] 
+                DAT_BUFF[ 3 :0] 
     ;
 
     // endcoder for  LED7-segment
@@ -652,9 +653,21 @@ module TM1638_LED_KEY_DRV #(
                      S_LOAD :
                         if (ENCBIN_XDIRECT_D) 
                             MAIN_BUFF <=  {
-                                   MAIN_BUFF[ 8: 0]
-                                , MAIN_BUFF[71:18]
-                                , MAIN_BUFF[17:16]
+                                  MAIN_BUFF[7*9+7  +:2]
+                                , MAIN_BUFF[6*9    +:7]
+                                , MAIN_BUFF[6*9+7  +:2]
+                                , MAIN_BUFF[5*9    +:7]
+                                , MAIN_BUFF[5*9+7  +:2]
+                                , MAIN_BUFF[4*9    +:7]
+                                , MAIN_BUFF[4*9+7  +:2]
+                                , MAIN_BUFF[3*9    +:7]
+                                , MAIN_BUFF[3*9+7  +:2]
+                                , MAIN_BUFF[2*9    +:7]
+                                , MAIN_BUFF[2*9+7  +:2]
+                                , MAIN_BUFF[1*9    +:7]
+                                , MAIN_BUFF[1*9+7  +:2]
+                                , MAIN_BUFF[0*9    +:7]
+                                , MAIN_BUFF[0*9+7  +:2]
                                 , enced_7seg 
                             } ;
                 endcase
