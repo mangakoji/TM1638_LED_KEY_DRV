@@ -47,7 +47,7 @@ Copyright &copy; @manga_koji 2017-04-16su
 Distributed under the [MIT License][mit].
 [MIT]: http://www.opensource.org/licenses/mit-license.php
 
-As a possibility, FUNY_CK_DIVIDER part is conflict any one's PAT.
+As a possibility, SUBREG_TIM_DIV part is conflict any one's PAT.
 I dosen't study PAT.
 But even if nobody held PAT, I don'd claim PAT.
 and you can use this for known example.

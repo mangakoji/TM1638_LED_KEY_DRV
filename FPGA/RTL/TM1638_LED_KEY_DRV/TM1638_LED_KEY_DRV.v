@@ -45,11 +45,6 @@ module TM1638_LED_KEY_DRV #(
     , output                SCLK_o
     , output                SS_o
     , output    [ 7:0]      KEYS_o
-    , output                DB_FRAME_REQ_o 
-    , output                DB_EN_SCLK_o
-    , output                DB_BUSY_o
-    , output                DB_BYTE_BUSY_o
-    , output                DB_KEY_STATE_o
 ) ;
     function time log2;             //time is reg unsigned [63:0]
         input time value ;
@@ -103,7 +98,6 @@ module TM1638_LED_KEY_DRV #(
             end 
         end
     assign EN_CK = EN_XSCLK ;
-    assign DB_EN_SCLK_o = EN_SCLK ;
 
     // gen cyclic FRAME_request
     //
@@ -383,7 +377,6 @@ module TM1638_LED_KEY_DRV #(
                             BUSY <= 1'b1 ;
                     endcase
             endcase
-    assign DB_BUSY_o = BUSY ;
     reg BYTE_BUSY ;
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
@@ -395,7 +388,6 @@ module TM1638_LED_KEY_DRV #(
                 default :
                     BYTE_BUSY <= 1'b1 ;
             endcase
-    assign DB_BYTE_BUSY_o = BYTE_BUSY ;
     reg KEY_STATE ;
     always @(posedge CK_i or negedge XARST_i)
         if (~ XARST_i)
@@ -410,7 +402,6 @@ module TM1638_LED_KEY_DRV #(
                 default :
                     KEY_STATE <= 1'b0 ;
             endcase
-    assign DB_KEY_STATE_o = KEY_STATE ;
     
 
     reg MOSI_OE  ;
@@ -802,8 +793,6 @@ module TM1638_LED_KEY_DRV #(
             endcase
     assign KEYS_o = KEYS ;
 
-    assign DB_FRAME_REQ_o = FRAME_REQ ;
-    assign DB_EN_CK_o = EN_CK ;
 endmodule //TM1638_LED_KEY_DRV()
 
 
@@ -837,11 +826,6 @@ module TB_TM1638_LED_KEY_DRV #(
     wire            SCLK_o          ;
     wire            SS_o            ;
     wire    [ 7:0]  KEYS            ;
-    wire            DB_FRAME_REQ_o  ;
-    wire            DB_EN_SCLK_o    ;
-    wire            DB_BUSY_o       ;
-    wire            DB_BYTE_BUSY_o  ;
-    wire            DB_KEY_STATE_o  ;
     assign ENCBIN_XDIRECT_i = 1'b1 ; //
     TM1638_LED_KEY_DRV #(
           .C_FCK    ( 4096         )// Hz
@@ -878,11 +862,6 @@ module TB_TM1638_LED_KEY_DRV #(
         , .SCLK_o           ( SCLK_o        )
         , .SS_o             ( SS_o          )
         , .KEYS_o           ( KEYS          )
-        , .DB_FRAME_REQ_o   ( DB_FRAME_REQ_o    )
-        , .DB_EN_SCLK_o     ( DB_EN_SCLK_o      )
-        , .DB_BUSY_o        ( DB_BUSY_o         )
-        , .DB_BYTE_BUSY_o   ( DB_BYTE_BUSY_o    )
-        , .DB_KEY_STATE_o   ( DB_KEY_STATE_o    )
     ) ;
     
     integer TB_CTR ;

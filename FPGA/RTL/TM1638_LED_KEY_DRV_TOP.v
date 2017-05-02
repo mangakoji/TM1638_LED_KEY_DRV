@@ -91,6 +91,7 @@ module TM1638_LED_KEY_DRV_TOP(
     // start
     wire            XARST           ;
     wire            CK196M          ;
+    wire            CK              ;
     assign CK = CK48M_i ;
     PLL u_PLL(
               .areset       ( 1'b0          )
@@ -98,7 +99,47 @@ module TM1638_LED_KEY_DRV_TOP(
             , .c0           ( CK196M        )
             , .locked       ( XARST         )
     ) ;
-
+    localparam  [63:0] C_PULSE_NS ={
+           8'b1
+        ,  8'd3
+        ,  8'd5
+        ,  8'd7
+        ,  8'd9
+        , 8'd11
+        , 8'd13
+        , 8'd15 
+    };
+    localparam  [31:0] C_INCDATS  ={
+            4'h1
+          , 4'hB
+          , 4'hD
+          , 4'h7
+          , 4'h9
+          , 4'h3
+          , 4'h5
+          , 4'hF
+    } ;
+    wire [ 7 :0]    EN_CKS  ;
+    reg  [ 3 :0]    TIM_CTRS [7:0];
+    generate
+        genvar g_idx ;
+        for (g_idx=0 ; g_idx<8 ; g_idx=g_idx+1)begin :gen_timectr
+            SUBREG_TIM_DIV #(
+                .C_PERIOD_W( log2('d48_000_000_0) )
+            )SUBREG_TIM_DIV(
+                  .CK_i     ( CK                    )
+                , .XARST_i  ( XARST                 )
+                , .PERIOD_i ( 'd48_000_000_0          )
+                , .PULSE_N_i( C_PULSE_NS[ 8*g_idx +:8]   )
+                , .EN_CK_o  ( EN_CKS    [ g_idx ]   )
+            ) ;
+            always @ (posedge CK or negedge XARST)
+                if ( ~ XARST)
+                    TIM_CTRS[g_idx] <= 'd0 ;
+                else if (EN_CKS[g_idx])
+                    TIM_CTRS[g_idx] <= TIM_CTRS[g_idx] + C_INCDATS[4*g_idx+:4] ;
+        end
+    endgenerate
     wire            MISO_i          ;
     wire            MOSI            ;
     wire            MOSI_OE         ;
@@ -132,14 +173,14 @@ module TM1638_LED_KEY_DRV_TOP(
         , .DOTS_i           ( KEYS      )
         , .LEDS_i           ( ~KEYS      )
         , .BIN_DAT_i        ( {
-                                4'hF
-                                , 4'hE
-                                , 4'hD
-                                , 4'hC
-                                , 4'hB
-                                , 4'hA
-                                , 4'h9
-                                , 4'h8
+                                  TIM_CTRS[7]
+                                , TIM_CTRS[6]
+                                , TIM_CTRS[5]
+                                , TIM_CTRS[4]
+                                , TIM_CTRS[3]
+                                , TIM_CTRS[2]
+                                , TIM_CTRS[1]
+                                , TIM_CTRS[0]
                              })
         , .SUP_DIGITS_i     ( SUP_DIGITS    )
         , .ENCBIN_XDIRECT_i ( ENCBIN_XDIRECT_i)
@@ -149,22 +190,19 @@ module TM1638_LED_KEY_DRV_TOP(
         , .SCLK_o           ( SCLK_o        )
         , .SS_o             ( SS_o          )
         , .KEYS_o           ( KEYS          )
-        , .DB_FRAME_REQ_o   ( DB_FRAME_REQ_o    )
-        , .DB_EN_SCLK_o     ( DB_EN_SCLK_o      )
-        , .DB_BUSY_o        ( DB_BUSY_o         )
-        , .DB_BYTE_BUSY_o   ( DB_BYTE_BUSY_o    )
-        , .DB_KEY_STATE_o   ( DB_KEY_STATE_o    )
     ) ;
     reg [7:0] KEYS_D ;
     always @ (posedge CK )
         KEYS_D <= KEYS ;
 
     always @ (posedge CK)
-        if (KEYS[0] & KEYS_D[0])
+        if ( ~ XARST )
+            ENCBIN_XDIRECT <= 1'b1 ;
+        else if (KEYS[0] & KEYS_D[0])
             ENCBIN_XDIRECT <= ~ ENCBIN_XDIRECT ;
 
     generate
-        genvar g_idx ;
+//        genvar g_idx ;
         for (g_idx=0 ; g_idx<8 ; g_idx=g_idx+1)begin :gen_SUPS
             always @ (posedge CK)
                     SUP_DIGITS[g_idx] <= KEYS[ g_idx ] ;
@@ -176,9 +214,6 @@ module TM1638_LED_KEY_DRV_TOP(
     assign MISO_i = P124 ;  //DIO
     assign P127 = SCLK_o ;  //CLK
     assign P130 = SS_o ;    //STB
-    assign P131 = DB_FRAME_REQ_o ;
-    assign P132 = DB_BUSY_o;
-    assign P134 = DB_KEY_STATE_o;
 
 
 //    assign P38 = TPAT_P_o ;
