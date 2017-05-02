@@ -820,21 +820,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 928 312)
-	(pt 936 312)
-	(bus)
-)
-(connector
-	(pt 928 272)
-	(pt 928 312)
-	(bus)
-)
-(connector
-	(pt 928 272)
-	(pt 920 272)
-	(bus)
-)
-(connector
 	(pt 896 280)
 	(pt 896 360)
 )
@@ -870,10 +855,6 @@ applicable agreement for further details.
 	(pt 1232 360)
 )
 (connector
-	(pt 888 224)
-	(pt 920 224)
-)
-(connector
 	(pt 1224 168)
 	(pt 1232 168)
 )
@@ -884,14 +865,6 @@ applicable agreement for further details.
 (connector
 	(pt 888 280)
 	(pt 896 280)
-)
-(connector
-	(pt 896 280)
-	(pt 904 280)
-)
-(connector
-	(pt 904 280)
-	(pt 920 280)
 )
 (connector
 	(pt 792 328)
@@ -922,14 +895,6 @@ applicable agreement for further details.
 (connector
 	(pt 888 240)
 	(pt 888 280)
-)
-(connector
-	(pt 920 224)
-	(pt 920 272)
-)
-(connector
-	(pt 920 272)
-	(pt 920 280)
 )
 (connector
 	(pt 864 -88)
@@ -3413,6 +3378,41 @@ applicable agreement for further details.
 	(pt 88 496)
 	(pt 136 496)
 )
+(connector
+	(pt 936 312)
+	(pt 928 312)
+	(bus)
+)
+(connector
+	(pt 928 312)
+	(pt 928 232)
+	(bus)
+)
+(connector
+	(pt 928 232)
+	(pt 920 232)
+	(bus)
+)
+(connector
+	(pt 888 224)
+	(pt 920 224)
+)
+(connector
+	(pt 896 280)
+	(pt 904 280)
+)
+(connector
+	(pt 904 280)
+	(pt 920 280)
+)
+(connector
+	(pt 920 224)
+	(pt 920 232)
+)
+(connector
+	(pt 920 232)
+	(pt 920 280)
+)
 (junction (pt 152 584))
 (junction (pt 184 584))
 (junction (pt 152 600))
@@ -3459,7 +3459,6 @@ applicable agreement for further details.
 (junction (pt 896 360))
 (junction (pt 952 360))
 (junction (pt 888 240))
-(junction (pt 920 272))
 (junction (pt 872 -88))
 (junction (pt 872 -48))
 (junction (pt 872 -16))
@@ -3628,6 +3627,7 @@ applicable agreement for further details.
 (junction (pt 376 480))
 (junction (pt 408 480))
 (junction (pt 440 480))
+(junction (pt 920 232))
 (text "TM1638_LED_KEY_DRV" (rect -8 -24 501 24)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 36)))
 (text "ToDo" (rect 1056 -504 1131 -471)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
 (text "SEQ_part_block" (rect 1056 -368 1320 -335)(font "ÇlÇr ÉSÉVÉbÉN" (color 0 0 255)(font_size 24)))
@@ -3729,7 +3729,6 @@ applicable agreement for further details.
 (text "[0]" (rect 1184 160 1208 173)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "MAIN_BUF_LD" (rect 1144 192 1234 205)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "MAIN_BUF_SFR1" (rect 1120 232 1227 245)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
-(text "MAIN_BUF_SFR9_LD7" (rect 1112 208 1252 221)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "BYTE_BUF_LD" (rect 1408 88 1498 101)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "40H" (rect 1376 -32 1400 -19)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "8FH" (rect 1376 0 1400 13)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
@@ -3767,9 +3766,7 @@ applicable agreement for further details.
 (text "clock_divider" (rect 952 536 1059 549)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "SUP_DIGIT_i/8" (rect 688 336 795 349)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "SUP_DIGIT_i/8" (rect 200 168 307 181)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
-(text "MS/5" (rect 928 256 961 269)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
-(text "[7],[31:28]" (rect 848 312 938 325)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
-(text "[6:0],[27:0]" (rect 800 224 899 237)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[7],[31:28]" (rect 808 448 898 461)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "DAT_BUFF/7*(4+1)=35" (rect 896 208 1052 221)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "sup" (rect 1016 336 1040 349)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "dat" (rect 1016 320 1040 333)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
@@ -3894,6 +3891,10 @@ applicable agreement for further details.
 (text "EN_SCLK" (rect 32 488 89 501)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "EN_HSCLK" (rect 32 448 98 461)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (text "FINISH" (rect 680 1112 729 1125)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[0],[3:0]" (rect 848 312 922 325)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "[7:1],[31:4]" (rect 800 224 899 237)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "ls/5" (rect 936 232 969 245)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
+(text "MAIN_BUF_SFL9_LD7" (rect 1112 208 1252 221)(font "ÇlÇr ÉSÉVÉbÉN" (font_size 10)))
 (line (pt 376 552)(pt 408 552)(line_width 1))
 (line (pt 440 552)(pt 472 552)(line_width 1))
 (line (pt 376 512)(pt 408 512)(line_width 1))
@@ -3907,11 +3908,9 @@ applicable agreement for further details.
 (line (pt 200 440)(pt 88 440)(line_width 1))
 (line (pt 176 1080)(pt 328 1080)(line_width 1))
 (line (pt 912 240)(pt 912 272)(line_width 1))
-(line (pt 912 272)(pt 904 264)(line_width 1))
 (line (pt 1264 -104)(pt 1264 152)(line_width 1))
 (line (pt 1264 -104)(pt 1256 -96)(line_width 1))
 (line (pt 1248 -96)(pt 1248 152)(line_width 1))
-(line (pt 1248 -96)(pt 1240 -88)(line_width 1))
 (line (pt 1560 -88)(pt 1560 -48)(line_width 1))
 (line (pt 1560 -88)(pt 1552 -80)(line_width 1))
 (line (pt -8 824)(pt -8 1040)(color 0 0 0)(dotted)(line_width 1))
@@ -3934,4 +3933,6 @@ applicable agreement for further details.
 (line (pt 1696 -104)(pt 1672 -40)(line_width 1))
 (line (pt 440 496)(pt 440 688)(color 0 0 0)(dotted)(line_width 1))
 (line (pt 408 496)(pt 408 688)(color 0 0 0)(dotted)(line_width 1))
+(line (pt 912 240)(pt 904 248)(line_width 1))
+(line (pt 1248 152)(pt 1240 144)(line_width 1))
 (arc (pt 0 528)(pt 0 648)(rect -16 504 16 648))
