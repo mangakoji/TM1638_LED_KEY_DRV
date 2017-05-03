@@ -41,7 +41,7 @@ the Demo is a ... funny clock. MSB digit 16 in 1 minuts.
 
 
     
-```test:pin_connection
+```ruby:pin_connection.rb
 Boadr : FPGA
 VCC - CQ_MAX10-JB F1(poli Fuse)+5Vside
 GND - CQ_MAX10-FB‚ÌGNDpin
