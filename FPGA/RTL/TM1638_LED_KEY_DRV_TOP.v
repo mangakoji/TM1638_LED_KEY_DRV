@@ -137,9 +137,9 @@ module TM1638_LED_KEY_DRV_TOP(
             ) ;
             always @ (posedge CK or negedge XARST)
                 if ( ~ XARST)
-                    TIM_CTRS[g_idx] <= 'd0 ;
+                    TIM_CTRS[g_idx] <= 4'hF ;
                 else if (KEYS[1])
-                    TIM_CTRS[g_idx] <= 'd0 ;
+                    TIM_CTRS[g_idx] <= 4'hF ;
                 else if (EN_CKS[g_idx])
                     TIM_CTRS[g_idx] <= TIM_CTRS[g_idx] + C_INCDATS[4*g_idx+:4] ;
             always @(posedge CK or negedge XARST)
