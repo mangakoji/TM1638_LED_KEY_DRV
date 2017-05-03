@@ -25,6 +25,8 @@ driver module name is
 
 2. if you show binary code , input BIN_DAT_i/32
 3. if you want direct 7seg drive, connect DIRECT7SEG[0:7]_i
+
+    
 ```verilogHDL:sample
 
 
@@ -38,8 +40,8 @@ you can simple RTL behaver sim on this same code.
 the Demo is a ... funny clock. MSB digit 16 in 1 minuts.
 
 
-
-```test:pin connection
+    
+```test:pin_connection
 Boadr : FPGA
 VCC - CQ_MAX10-JB F1(poli Fuse)+5Vside
 GND - CQ_MAX10-FB‚ÌGNDpin
