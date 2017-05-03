@@ -28,7 +28,7 @@ driver module name is
 ```verilogHDL:sample
 
 
-````
+```
 
 include TB_~~~
 you can simple RTL behaver sim on this same code.
@@ -39,14 +39,14 @@ the Demo is a ... funny clock. MSB digit 16 in 1 minuts.
 
 
 
-```pin connection
+```test:pin connection
 Boadr : FPGA
 VCC - CQ_MAX10-JB F1(poli Fuse)+5Vside
 GND - CQ_MAX10-FB‚ÌGNDpin
 STB - SS_o(P130)
 CLK - SCLK_o(P127)
 DIO-MISO_i(P124)
-````
+```
  
 
 
