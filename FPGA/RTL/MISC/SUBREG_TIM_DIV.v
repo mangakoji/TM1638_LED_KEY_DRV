@@ -43,9 +43,19 @@ module SUBREG_TIM_DIV #(
     ;
     always @(posedge CK_i or negedge XARST_i)
         if ( ~ XARST_i)
-            DIV_CTR <= 'd0 ;
+            DIV_CTR <= 
+                (
+                    - $unsigned(PULSE_N_i) 
+                    + $unsigned( PERIOD_i )
+                ) /2
+            ;
         else if ( RST_i )
-            DIV_CTR <= 'd0 ;
+            DIV_CTR <= 
+                (
+                    - $unsigned(PULSE_N_i) 
+                    + $unsigned( PERIOD_i )
+                ) /2
+            ;
         else
             DIV_CTR <= DIV_CTR_a ;
     assign EN_CK_o = DIV_CTR[C_PERIOD_W] ; //sign

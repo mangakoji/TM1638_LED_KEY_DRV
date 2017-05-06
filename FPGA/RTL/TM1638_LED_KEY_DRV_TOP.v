@@ -13,6 +13,7 @@
 // hatena: id:mangakoji http://mangakoji.hatenablog.com/
 // GitHub :@mangakoji
 //
+//170506s     :BIN2BCD append , append check circuit 
 //170501m  002 :1st. compile is passed , and debug start
 //170430u   001 :1st. cp from VR_LOC_DET_TOP.v
 //170408s   004:append SOUNDER
@@ -119,9 +120,10 @@ module TM1638_LED_KEY_DRV_TOP(
           , 4'h5
           , 4'hF
     } ;
-    wire [ 7 :0]    EN_CKS  ;
-    reg  [ 3 :0]    TIM_CTRS [7:0];
-    reg  [ 7 :0]    LEDS    ;
+    wire [ 7 :0]    EN_CKS          ;
+    reg  [ 3 :0]    TIM_CTRS [ 7 :0];
+    reg  [ 7 :0]    LEDS            ;
+    wire [ 7 :0]     KEYS           ;
     generate
         genvar g_idx ;
         for (g_idx=0 ; g_idx<8 ; g_idx=g_idx+1)begin :gen_timectr
@@ -151,12 +153,34 @@ module TM1638_LED_KEY_DRV_TOP(
                         LEDS[g_idx] <= (TIM_CTRS[g_idx] == TIM_CTRS[g_idx-1]) ;
         end
     endgenerate
+    
+    wire       BCD_cy ;
+    reg [26:0]  BCD ;
+    SUBREG_TIM_DIV #(
+            .C_PERIOD_W( log2('d48_000_000) )
+    )SUBREG_TIM_DIV(
+          .CK_i     ( CK                    )
+        , .XARST_i  ( XARST                 )
+        , .RST_i    ( KEYS[1]               )
+        , .PERIOD_i ( 48_000_000        )
+        , .PULSE_N_i( 1                 )
+        , .EN_CK_o  ( BCD_cy            )
+    ) ;
+    always @ (posedge CK or negedge XARST)
+         if ( ~ XARST)
+            BCD <= 4'h0 ;
+        else if (KEYS[1])
+             BCD <= 4'h0 ;
+        else if (BCD_cy)
+             BCD <= (BCD >= (10**8-1)) ? 0 : (BCD + 'd1111_1111) ;
+
+
     wire            MISO_i          ;
     wire            MOSI            ;
     wire            MOSI_OE         ;
     wire            SCLK_o          ;
     wire            SS_o            ;
-    wire    [ 7:0]  KEYS            ;
+//    wire    [ 7:0]  KEYS            ;
     wire            DB_FRAME_REQ_o  ;
     wire            DB_EN_SCLK_o    ;
     wire            DB_BUSY_o       ;
@@ -164,6 +188,7 @@ module TM1638_LED_KEY_DRV_TOP(
     wire            DB_KEY_STATE_o  ;
     reg             ENCBIN_XDIRECT ;
     wire            ENCBIN_XDIRECT_i  ;
+    reg             BIN2BCD_ON        ;
     assign ENCBIN_XDIRECT_i = ENCBIN_XDIRECT ; //
     reg [7:0]   SUP_DIGITS ;
     TM1638_LED_KEY_DRV #(
@@ -183,7 +208,11 @@ module TM1638_LED_KEY_DRV_TOP(
         , .DIRECT7SEG7_i    ( 7'b0100111 )
         , .DOTS_i           ( KEYS      )
         , .LEDS_i           ( LEDS      )
-        , .BIN_DAT_i        ( {
+        , .BIN_DAT_i        ( 
+                        BIN2BCD_ON ?
+                            BCD
+                        :
+                            {
                                   TIM_CTRS[7]
                                 , TIM_CTRS[6]
                                 , TIM_CTRS[5]
@@ -195,6 +224,7 @@ module TM1638_LED_KEY_DRV_TOP(
                              })
         , .SUP_DIGITS_i     ( SUP_DIGITS    )
         , .ENCBIN_XDIRECT_i ( ENCBIN_XDIRECT_i)
+        , .BIN2BCD_ON_i     ( BIN2BCD_ON  )
         , .MISO_i           ( MISO_i        )
         , .MOSI_o           ( MOSI          )
         , .MOSI_OE_o        ( MOSI_OE       )
@@ -206,11 +236,17 @@ module TM1638_LED_KEY_DRV_TOP(
     always @ (posedge CK )
         KEYS_D <= KEYS ;
 
-    always @ (posedge CK)
+    always @ (posedge CK or negedge XARST)
         if ( ~ XARST )
             ENCBIN_XDIRECT <= 1'b1 ;
-        else if (KEYS[0] & KEYS_D[0])
+        else if (KEYS[0] &  ~ KEYS_D[0])
             ENCBIN_XDIRECT <= ~ ENCBIN_XDIRECT ;
+    always @ (posedge CK or negedge XARST)
+        if ( ~ XARST)
+            BIN2BCD_ON <= 1'b1 ;
+        else if (KEYS[2] &  ~ KEYS_D[2])
+            BIN2BCD_ON <= ~ BIN2BCD_ON ;
+
 
     generate
 //        genvar g_idx ;

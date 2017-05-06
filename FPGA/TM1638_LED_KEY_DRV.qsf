@@ -133,6 +133,7 @@ set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to P124
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to P127
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to P130
+set_global_assignment -name VERILOG_FILE RTL/MISC/BIN2BCD.v
 set_global_assignment -name VERILOG_FILE RTL/MISC/SUBREG_TIM_DIV.v
 set_global_assignment -name VERILOG_FILE RTL/TM1638_LED_KEY_DRV/TM1638_LED_KEY_DRV.v
 set_global_assignment -name QIP_FILE IP/PLL/PLL.qip
